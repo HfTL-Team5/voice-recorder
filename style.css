@@ -5,6 +5,20 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "BelindaW00-Regular"; 
+    src: url(BelindaW00-Regular.ttf); 
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#content { 
+    margin-top: 50px; 
+}
+
 #top-menu {
     background: #666666;
     height: 50px;
@@ -14,7 +28,7 @@
     vertical-align: middle;
     top: 0;
     padding: 0;
-
+    min-width: 900px;
 }
 
 .button {
@@ -50,7 +64,9 @@
     margin: 0;
     padding: 0;
     line-height: 1.08em;
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    font-family: "BelindaW00-Regular";
+    color: white;
+
 }
 
 #startseite {
@@ -61,12 +77,12 @@
 
 #projekt {
     background: #FAFAFA;
-    height: 50vh;
+    height: 100vh;
 }
 
 #team {
     background: yellow;
-    height: 50vh;
+    height: 100vh;
 }
 
 #footer {
