@@ -1,0 +1,91 @@
+*,
+*:after,
+*:before
+{
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "BelindaW00-Regular"; 
+    src: url(BelindaW00-Regular.ttf); 
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#content { 
+    margin-top: 50px; 
+}
+
+#top-menu {
+    background: #666666;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    top: 0;
+    padding: 0;
+    min-width: 900px;
+}
+
+.button {
+    background-color: #666666;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    cursor: pointer;
+    float: left;
+    height: 100%;
+    margin-left: 50px;
+    transition: font-size 0.3s;
+}
+
+.button:hover {
+    background-color: #333333;
+    font-size: 20px;
+}
+
+#text{
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    text-align: center;
+    font-size: 88px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.08em;
+    font-family: "BelindaW00-Regular";
+    color: white;
+
+}
+
+#startseite {
+    background: #0055EC;
+    height: 100vh;
+    margin-top: 50px;
+}
+
+#projekt {
+    background: #FAFAFA;
+    height: 100vh;
+}
+
+#team {
+    background: yellow;
+    height: 100vh;
+}
+
+#footer {
+    background: #666666;
+    height: 20vh;
+}
