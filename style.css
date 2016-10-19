@@ -12,11 +12,12 @@
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 #content { 
     margin-top: 50px; 
+    
 }
 
 #top-menu {
@@ -52,40 +53,14 @@ a {
     font-size: 20px;
 }
 
-#text{
-    font-style: normal;
-    font-variant-ligatures: normal;
-    font-variant-caps: normal;
-    font-variant-numeric: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    text-align: center;
-    font-size: 88px;
-    margin: 0;
-    padding: 0;
-    line-height: 1.08em;
-    font-family: "BelindaW00-Regular";
-    color: white;
-
-}
-
-#startseite {
-    background: #0055EC;
+#impressum {
+    background: #B0C4DE;
     height: 100vh;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-#projekt {
-    background: #FAFAFA;
-    height: 100vh;
-}
-
-#team {
-    background: yellow;
-    height: 100vh;
-}
-
-#footer {
+#footer    {
     background: #666666;
-    height: 20vh;
+    color: white;
+    height: 5vh;
 }
