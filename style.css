@@ -85,6 +85,12 @@ a {
     height: 100vh;
 }
 
+#hilfe {
+    background: #F5B7B1;
+    height: 100vh;
+    margin-top: 40px;
+}
+
 #impressum {
     background: #FAFAFA;
     height: 150vh;
@@ -136,4 +142,4 @@ a {
 #unsupportedbrowser:hover {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
-}
+}
