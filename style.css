@@ -85,7 +85,55 @@ a {
     height: 100vh;
 }
 
+#impressum {
+    background: #FAFAFA;
+    height: 150vh;
+}
+
+#unsupportedmain {
+    background: #FAFAFA;
+}
+
 #footer {
     background: #666666;
     height: 20vh;
-} 
+}
+
+#unsupportedbig {
+	font-size: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-style: normal;
+	font-variant-ligatures: normal;
+	font-variant-caps: normal;
+	font-variant-numeric: normal;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 1.08em;
+}
+#unsupportedsmall {
+	font-size: 20px;
+	margin-top: 90px;
+	margin-bottom: 90px;
+	text-align: center;
+	font-style: normal;
+	font-variant-ligatures: normal;
+	font-variant-caps: normal;
+	font-variant-numeric: normal;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 1.08em;
+}
+#unsupportedbrowser {
+	height: 64px;
+	width: 64px;
+	transition: transform .8s ease-in-out;
+	cursor: pointer;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 100px;
+}
+#unsupportedbrowser:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
