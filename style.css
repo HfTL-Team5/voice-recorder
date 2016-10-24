@@ -84,11 +84,13 @@ a {
 #projekt {
     background: #FAFAFA;
     height: 100vh;
+	padding: 50px;
 }
 
 #team {
     background: yellow;
     height: 100vh;
+	padding: 50px;
 }
 
 #hilfe {
@@ -110,6 +112,16 @@ a {
 #footer {
     background: #454455;
     height: 10vh;
+}
+
+#footer-center {
+	text-align:  center;
+	padding: 10px;
+}
+
+#text-footer {
+	color: #D7D7D7;
+	font-size: 11px;
 }
 
 #unsupportedbig {
