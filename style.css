@@ -70,7 +70,8 @@ a {
 }
 
 #startseite {
-    background: #0055EC;
+    background: url(images/coffee.jpg) no-repeat;
+	background-size: 100%;
     height: 100vh;
     margin-top: 50px;
 }
@@ -82,13 +83,13 @@ a {
 }
 
 #projekt {
-    background: #FAFAFA;
+    background: #ECEAE9;
     height: 100vh;
 	padding: 50px;
 }
 
 #team {
-    background: yellow;
+    background: #DCDCDC;
     height: 100vh;
 	padding: 50px;
 }
@@ -105,7 +106,7 @@ a {
 }
 
 #unsupportedmain {
-    background: #FAFAFA;
+    background: #ECEAE9;
     height: 100vh;
 }
 
