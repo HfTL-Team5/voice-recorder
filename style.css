@@ -75,6 +75,12 @@ a {
     margin-top: 50px;
 }
 
+#app {
+    background: #ECEAE9;
+    height: 100vh;
+    margin-top: 40px;
+}
+
 #projekt {
     background: #FAFAFA;
     height: 100vh;
@@ -86,7 +92,7 @@ a {
 }
 
 #hilfe {
-    background: #F5B7B1;
+    background: #ECEAE9;
     height: 100vh;
     margin-top: 40px;
 }
