@@ -12,6 +12,9 @@
 
         <!-- page title -->
         <title>Startseite</title>
+		
+	<script type="text/javascript" src="js/jquery.1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/scrolling.js">></script>
 
     </head>
 
@@ -20,11 +23,11 @@
         <div style="clear: both"></div>
 
         <div id="top-menu">
-            <button class="button">App</button>
+            <a href="check.html"><button class="button">App</button></a>
             <a href="#projekt"><button class="button">Projekt</button></a>
             <a href="#team"><button class="button">Team</button></a>
-            <button class="button">Hilfe</button>
-            <button class="button">Impressum</button>
+            <a href="hilfe.html"><button class="button">Hilfe</button></a>
+            <a href="impressum.html"><button class="button">Impressum</button></a>
         </div>
 
         <div id="content">
@@ -35,7 +38,12 @@
 
             <div id="projekt">Projekt</div>
             <div id="team">Team</div>
-            <div id="footer"></div>
+            <div id="footer">
+				<div id="footer-center">
+					<a href="https://github.com/HfTL-Team5"><img src="images/github.svg" width="50" height="50"></a>
+					<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
+				</div>
+			</div>
         </div>
         
     </body>
