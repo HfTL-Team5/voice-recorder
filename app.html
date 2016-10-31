@@ -98,15 +98,20 @@
                     interim += event.results[i][0].transcript;
                 }
             }
-            transcription.textContent = final;
-            transcription.textContent = interim;    
+            //transcription.textContent = final;
+            //transcription.textContent = interim;
+            
+            var last = event.results.length - 1;
+            var Eingabe = event.results[last][0].transcript;
+            if (Eingabe.toUpperCase().indexOf('ANNA') != -1) {
+                alert("erkannt");
+            } else {
+                transcription.textContent = final;
+                transcription.textContent = interim;
+            }
         };
 
-        // Listen for errors
-        recognizer.onerror = function(event) {
-          //alert(event.message);
-        };
-          
+/*          
         //Button click
         document.getElementById('appbutton').addEventListener('click', function() {toggleStartStop();});
 
@@ -133,6 +138,7 @@
           transcription.textContent = '';
           log.textContent = '';
         });
+*/
       }
      </script>
     </body>
