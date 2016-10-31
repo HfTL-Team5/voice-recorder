@@ -6,7 +6,9 @@
         <!-- import external stylesheets -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
         <link href="style.css" rel="stylesheet" type="text/css">
-        
+        <link href="app.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/webspeechapi.js"></script>
+        <script src="js/speechkitt.min.js"></script>
         <!-- link favicon -->
         <link href="images/icon_transparent.png" rel="shortcut icon">
 
@@ -29,7 +31,8 @@
 
         <div id="content">
             <div id="app">
-                
+                <button id="appbutton">Start</button>
+                <p contenteditable="true" id="transcription"></p>
             </div>
         </div>
 		<div id="footer">				
@@ -38,6 +41,99 @@
 				<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
 			</div>
 		</div>
-    <!--<div id="footer"><center>END OF PAGE</center></div>-->
+     <script>         
+      // Test browser support
+      window.SpeechRecognition = window.SpeechRecognition       ||
+                                 window.webkitSpeechRecognition ||
+                                 null;
+         //Browser unterstuetzt  WSA nicht
+      if (window.SpeechRecognition === null) {
+        window.location = "unsupported_browser.html";
+      } else {              //Browser unterstuetzt WSA
+        var recognizer = new window.SpeechRecognition();
+        recognizer.lang = "de";
+          
+                  
+        //-----------------------------------------------------------------------------------------------------------------
+          
+          // Tell KITT the command to use to start listening
+          SpeechKITT.setStartCommand(function() {recognizer.start()});
+
+          // Tell KITT the command to use to abort listening
+          SpeechKITT.setAbortCommand(function() {recognizer.abort()});
+
+          // Register KITT's recognition start event with the browser's Speech Recognition
+          recognizer.addEventListener('start', SpeechKITT.onStart);
+
+          // Register KITT's recognition end event with the browser's Speech Recognition
+          recognizer.addEventListener('end', SpeechKITT.onEnd);
+
+          // Define a stylesheet for KITT to use
+          SpeechKITT.setStylesheet('//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css');
+
+          // Render KITT's interface
+          SpeechKITT.vroom(); // SpeechKITT.render() does the same thing, but isn't as much fun!
+          
+        //-----------------------------------------------------------------------------------------------------------------  
+       
+   
+        var transcription = document.getElementById('transcription');   //Ausgabe
+        var Eingabe;
+        var log = document.getElementById('log');
+
+        // Recogniser doesn't stop listening even if the user pauses
+        recognizer.continuous = true;
+        recognizer.interimResults = true;
+        var recognizing;
+        reset();
+
+        // Start recognising
+        recognizer.onresult = function (event) {
+            var final = "";
+            var interim = "";
+            for (var i = 0; i < event.results.length; ++i) {
+                if (event.results[i].final) {
+                    final += event.results[i][0].transcript;
+                } else {
+                    interim += event.results[i][0].transcript;
+                }
+            }
+            transcription.textContent = final;
+            transcription.textContent = interim;    
+        };
+
+        // Listen for errors
+        recognizer.onerror = function(event) {
+          //alert(event.message);
+        };
+          
+        //Button click
+        document.getElementById('appbutton').addEventListener('click', function() {toggleStartStop();});
+
+        //Start and Stopp Listening
+        function toggleStartStop() {
+            if (recognizing) {
+                recognizer.stop();
+                reset();
+            } else {
+                recognizer.start();
+                recognizing = true;
+                document.getElementById('appbutton').innerHTML = "Stop";
+            }
+        }
+
+        //Button zuruecksetzen
+        function reset() {
+            recognizing = false;
+            document.getElementById('appbutton').innerHTML = "Start";
+        }
+          
+
+        document.getElementById('clear-all').addEventListener('click', function() {
+          transcription.textContent = '';
+          log.textContent = '';
+        });
+      }
+     </script>
     </body>
 </html>
