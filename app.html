@@ -31,8 +31,7 @@
 
         <div id="content">
             <div id="app">
-                <button id="appbutton">Start</button>
-                <p contenteditable="true" id="transcription"></p>
+                <p contenteditable="true" id="transcription">000000000000000</p>
             </div>
         </div>
 		<div id="footer">				
@@ -41,7 +40,7 @@
 				<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
 			</div>
 		</div>
-     <script>         
+     <script>       
       // Test browser support
       window.SpeechRecognition = window.SpeechRecognition       ||
                                  window.webkitSpeechRecognition ||
@@ -52,7 +51,6 @@
       } else {              //Browser unterstuetzt WSA
         var recognizer = new window.SpeechRecognition();
         recognizer.lang = "de";
-          
                   
         //-----------------------------------------------------------------------------------------------------------------
           
@@ -74,18 +72,62 @@
           // Render KITT's interface
           SpeechKITT.vroom(); // SpeechKITT.render() does the same thing, but isn't as much fun!
           
-        //-----------------------------------------------------------------------------------------------------------------  
-       
-   
-        var transcription = document.getElementById('transcription');   //Ausgabe
+        //-----------------------------------------------------------------------------------------------------------------
+          
+        document.getElementById("skitt-toggle-button").onclick = function() {toggle()};
+        
+        //var transcription = document.getElementById('transcription');   //Ausgabe
+        var transcription;
         var Eingabe;
+        var i = 0;
         var log = document.getElementById('log');
+          
+        function toggle() {
+            var rec = document.getElementById('skitt-listening-text__instructions').innerHTML;
+            if (rec == "recognizing true") {    //ist AN
+                transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
+                //recognizer.onaudiostart = function(event){
+                    //alert("speech start");
+                //}
+                recognizer.onend = function(event) {
+                    //MIC ist aus
+                    var Eingabe = document.getElementById('skitt-listening-text__instructions').innerHTML;  //Befehl holen
+                    Eingabe = Eingabe.toUpperCase();                                                    //Grossbuchstaben
+                    if (Eingabe.indexOf('TEXT') != -1)    //String enthaelt Befehl
+      		        {
+                      var newp = document.createElement("p");
+                      newp.contenteditable = "true";
+                      newp.id = i;
+                      if (i == 0) {
+                          document.getElementById('app').appendChild(newp);
+                      } else {
+                          var vorhandenesObjekt = document.getElementById(i-1);
+                          vorhandenesObjekt.appendChild(newp);
+                      }
+                      transcription = document.getElementById(i);   //Ausgabefeld
+                      i++;
+                      document.getElementById("skitt-listening-text__instructions").textContent="Texteingabe. Klicke zum Abbrechen";
+                      recognizer.start();
+                      //document.getElementById('skitt-ui').classList.remove("skitt-ui--not-listening");
+                      //document.getElementById('skitt-ui').classList.add("skitt-ui--listening");
+                      //document.getElementById('skitt-toggle-button').click();
+      		        }
+      		        if (Eingabe.indexOf('HILFE') != -1)    //String enthaelt Befehl
+      		        {
+            		  window.open("http://www.it-academy.cc","neu","toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=300,height=300");
+      		        }
+      		        if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) )) //String ist unverstaendlich
+                    {
+            		  //Entscheidung = 'Ich glaube ich habe das nicht genau verstanden! Antworte bitte mit Ja oder Nein';
+      		        }
+                }
+            } else {    //ist AUS
+                transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
+            }
+        }
 
         // Recogniser doesn't stop listening even if the user pauses
         recognizer.continuous = true;
-        recognizer.interimResults = true;
-        var recognizing;
-        reset();
 
         // Start recognising
         recognizer.onresult = function (event) {
@@ -98,17 +140,8 @@
                     interim += event.results[i][0].transcript;
                 }
             }
-            //transcription.textContent = final;
-            //transcription.textContent = interim;
-            
-            var last = event.results.length - 1;
-            var Eingabe = event.results[last][0].transcript;
-            if (Eingabe.toUpperCase().indexOf('ANNA') != -1) {
-                alert("erkannt");
-            } else {
-                transcription.textContent = final;
-                transcription.textContent = interim;
-            }
+            transcription.textContent = final;
+            transcription.textContent = interim;
         };
 
 /*          
