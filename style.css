@@ -194,6 +194,7 @@ a {
     background: #ECEAE9;
     height: 100vh;
     margin-top: 40px;
+	width: 100%;
 }
 
 #impressum {
@@ -257,4 +258,90 @@ a {
 #unsupportedbrowser:hover {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
+}
+#hilfe_inhalt1 {
+	float: left;
+	width: 70%;
+	height: 94vh;
+	background: #999455;
+	margin: 20px;
+	display: none;
+}
+#hilfe_inhalt2 {
+	float: left;
+	width: 70%;
+	height: 94vh;
+	background: #900455;
+	margin: 20px;
+	display: none;
+}
+#hilfe_inhalt3 {
+	float: left;
+	width: 70%;
+	height: 94vh;
+	background: #D7E9EC;
+	margin: 20px;
+	display: block;
+}
+#hilfe_rechts {
+	position: fixed;
+	margin: 20px;
+	margin-left: 0px;
+	width: 25%;
+	height: 70vh;
+	background: #333333;
+	display: inline;
+	z-index: 0;
+	text-align: center;
+}
+#hilfe_input {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	margin: 0;
+	width: 100%;
+	font-family: sans-serif;
+	font-size: 18px;
+	color:  #B0B0B0;
+	appearance: none;
+	box-shadow: none;
+	border-radius: none;
+	padding: 10px;
+  	border: solid 5px #c9c9c9;
+  	transition: border-color 0.3s;
+}
+#hilfe_input:focus {
+	outline: none;
+	border: solid 5px #969696;
+}
+#hilfe_output {
+	font-family: sans-serif;
+	font-size: 18px;
+	margin: 20px;
+	color:  #D7D7D7;
+}
+.linie {
+	border :none;
+	
+	background-color:#D7D7D7;
+	height: 2px;
+	margin: 0px 50px 0px 50px;
+}
+.btn {
+	font-family: Arial;
+	color: #D7D7D7;
+	font-size: 20px;
+	background: #666666;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.btn:hover {
+  background: #828282;
+  text-decoration: none;
+}
+.btn:focus {
+outline: none;
 }

@@ -1,43 +1,89 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html>
+
 
     <head>
 
+
         <!-- import external stylesheets -->
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
+
         <link href="style.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="js/cbhelp.js"></script>
         
         <!-- link favicon -->
+
         <link href="images/icon_transparent.png" rel="shortcut icon">
 
+
         <!-- page title -->
+
         <title>Hilfe</title>
+
         
     </head>
 
+
     <body>
+
 
         <div style="clear: both"></div>
 
+
         <div id="top-menu">
+
             <a href="check.html"><button class="button">App</button></a>
+
             <a href="index.html#projekt"><button class="button">Projekt</button></a>
+
             <a href="index.html#team"><button class="button">Team</button></a>
+
             <a href="index.html"><button class="button">Zur&uumlck</button></a>
+
             <a href="impressum.html"><button class="button">Impressum</button></a>
+
         </div>
 
+
         <div id="content">
-            <div id="hilfe">
-                
-            </div>
-        </div>
-		<div id="footer">				
-			<div id="footer-center">
-				<a href="https://github.com/HfTL-Team5"><img src="images/github.svg" width="50" height="50"></a>
-				<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
+
+		<div id="hilfe">
+
+			<div id="hilfe_inhalt1">1
+			</div>
+			<div id="hilfe_inhalt2">2
+			</div>
+			<div id="hilfe_inhalt3">3
+			</div>
+			<div id="hilfe_rechts">
+				<p id="hilfe_output"></p>
+				<hr class="linie">
+				<button id="btn1" class="btn">Welche Befehle gibt es?</button><br>
+				<button id="btn2" class="btn">Worauf muss ich achten?</button><br>
+				<button id="btn3" class="btn">Wieso funktioniert die App bei mir nicht?</button>
+				<input type="text" id="hilfe_input" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" value="Frag mich etwas..."></input>
 			</div>
 		</div>
+
+        </div>
+
+		<div id="footer">
+				
+			<div id="footer-center">
+
+				<a href="https://github.com/HfTL-Team5"><img src="images/github.svg" width="50" height="50"></a>
+
+				<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
+
+			</div>
+
+		</div>
+
     <!--<div id="footer"><center>END OF PAGE</center></div>-->
+
     </body>
+
 </html>
