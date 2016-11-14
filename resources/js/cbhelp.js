@@ -28,7 +28,7 @@ new Array (".*hei\u00dft du.*","Mein Name ist Alice.","Alice","Alice, einen Nach
   new Array ("(.*) (Mutter|Mama|Mutti)(.*)\.",	"Erz\u00e4hl mir mehr \u00fcber deine Mutter.","Hast du eine gute Beziehung zu deiner Mutter?","Familie ist sehr wichtig."),
   new Array ("(.*) (Vater|Vati|Papa)(.*)\.","Erz\u00e4hl mir mehr \u00fcber deinen Vater.", "Hast du eine gute Beziehung zu deinem Vater?","Familie ist sehr wichtig."),
   new Array ("(.*) (Kind|Tochter|Sohn|Schwester|Bruder)(.*)\.","Hattest du als Kind viele Freunde?",	"Was ist deine sch\u00f6nste Kinheitserinnerung?","Kannst du dich an deine Kindheitstr\u00e4ume erinner?","Hattest du eine sch\u00f6ne Kindheit?","Familie ist sehr wichtig."),
-  new Array ("(.*) dein lieblings(.*?)[\?]","Ich habe keinen Favouriten.","Ich habe so viele Favouriten. Es ist schwer sich f\u00flr einen zu entscheiden"),
+  new Array ("(.*) dein lieblings(.*?)[\?]","Ich habe keinen Favouriten.","Ich habe so viele Favouriten. Es ist schwer sich f\u00fcr einen zu entscheiden"),
   new Array ("(.*) (E-Mail|Mail|EMail|Adresse|Kontakt)(.*)\.",	"Unsere EMail lautet: team5@outlook.de"),
   new Array ("(.*) (Deutsch|Sprache|Englisch)(.*)\.","Zur Zeit verstehe ich nur Deutsch.","Ich lerne momentan in der Abendschule Englisch."),
   new Array ("(.*) (alt|Alter|geboren)(.*)\.","Ich altere nicht.","Ich wurde im November 2016 geboren."),
