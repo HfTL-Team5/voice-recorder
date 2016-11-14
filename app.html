@@ -7,10 +7,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
         <link href="resources/css/common.css" rel="stylesheet" type="text/css">
         <link href="app.css" rel="stylesheet" type="text/css">
-
         <!-- necessary? -->
-        <script type="text/javascript" src="js/webspeechapi.js"></script>
-
         <!-- import google webspeech -->
         <script src="resources/js/speechkitt.min.js"></script>
 
@@ -39,8 +36,13 @@
         </div>
 
         <div id="content">
-            <div id="app">
-                <p contenteditable="true" id="transcription">000000000000000</p>
+            <div id="textmenue">
+                <button id="btn1" class="btn">B</button>
+                <button id="btn2" class="btn">K</button>
+                <button id="btn3" class="btn">U</button>
+            </div>
+            <div contenteditable = "true" id="app">
+                
             </div>
         </div>
 
@@ -92,7 +94,6 @@
             var transcription;
             var Eingabe;
             var i = 0;
-            var log = document.getElementById('log');
           
         function toggle() {
             var rec = document.getElementById('skitt-listening-text__instructions').innerHTML;
@@ -103,37 +104,61 @@
                 //}
                 recognizer.onend = function(event) {
                     //MIC ist aus
+                    document.getElementById("textmenue").style.display = "none";
                     var Eingabe = document.getElementById('skitt-listening-text__instructions').innerHTML;  //Befehl holen
                     Eingabe = Eingabe.toUpperCase();                                                    //Grossbuchstaben
                     if (Eingabe.indexOf('TEXT') != -1)    //String enthaelt Befehl
       		        {
                       var newp = document.createElement("p");
-                      newp.contenteditable = "true";
                       newp.id = i;
+                      newp.className = "textline";
                       if (i == 0) {
                           document.getElementById('app').appendChild(newp);
+                          document.getElementById(i).style.paddingTop = "50px";
                       } else {
-                          var vorhandenesObjekt = document.getElementById(i-1);
+                          document.getElementById("app").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('app');
                           vorhandenesObjekt.appendChild(newp);
                       }
                       transcription = document.getElementById(i);   //Ausgabefeld
                       i++;
                       document.getElementById("skitt-listening-text__instructions").textContent="Texteingabe. Klicke zum Abbrechen";
+                      document.getElementById("textmenue").style.display = "inline";
                       recognizer.start();
-                      //document.getElementById('skitt-ui').classList.remove("skitt-ui--not-listening");
-                      //document.getElementById('skitt-ui').classList.add("skitt-ui--listening");
-                      //document.getElementById('skitt-toggle-button').click();
       		        }
-      		        if (Eingabe.indexOf('HILFE') != -1)    //String enthaelt Befehl
+                    else if (Eingabe.indexOf('HILFE') != -1)    //String enthaelt Befehl
       		        {
             		  window.open("hilfe.html","neu","toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=300,height=300");
       		        }
-      		        if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) )) //String ist unverstaendlich
+                    else if (Eingabe.indexOf('ÜBERSCHRIFT') != -1)    //String enthaelt Befehl
+      		        {
+            		  var newh = document.createElement("p");
+                      newh.id = i;
+                      //document.getElementById(i).contentEditable='true';
+                      newh.className = "headline";
+                      if (i == 0) {
+                          document.getElementById('app').appendChild(newh);
+                          document.getElementById(i).style.paddingTop = "50px";
+                      } else {
+                          document.getElementById("app").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('app');
+                          vorhandenesObjekt.appendChild(newh);
+                      }
+                      transcription = document.getElementById(i);   //Ausgabefeld
+                      i++;
+                      document.getElementById("skitt-listening-text__instructions").textContent="Texteingabe. Klicke zum Abbrechen";
+                      document.getElementById("textmenue").style.display = "inline";
+                      recognizer.start();
+      		        }
+                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) )) //String ist unverstaendlich
                     {
-            		  //Entscheidung = 'Ich glaube ich habe das nicht genau verstanden! Antworte bitte mit Ja oder Nein';
+                        document.getElementById("skitt-listening-text__instructions").textContent="Ich glaube ich habe das nicht genau verstanden!";
       		        }
                 }
+            } else {    //ist AUS
+                transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
             }
+        }
 
             // Recogniser doesn't stop listening even if the user pauses
             recognizer.continuous = true;
@@ -152,35 +177,51 @@
                 transcription.textContent = final;
                 transcription.textContent = interim;
             };
-
-            /*          
-            //Button click
-            document.getElementById('appbutton').addEventListener('click', function() {toggleStartStop();});
-
-            //Start and Stopp Listening
-            function toggleStartStop() {
-                if (recognizing) {
-                    recognizer.stop();
-                    reset();
-                } else {
-                    recognizer.start();
-                    recognizing = true;
-                    document.getElementById('appbutton').innerHTML = "Stop";
-                }
+              
+        document.getElementById('btn1').addEventListener('click', function() {bold();});
+        document.getElementById('btn2').addEventListener('click', function() {italic();});
+        document.getElementById('btn3').addEventListener('click', function() {underline();});
+        var b1 = "false";
+        var b2 = "false";
+        var b3 = "false";
+        
+        function bold() {
+            if(b1 == "false") {
+                document.getElementById('btn1').style.backgroundColor = "#7db3d4";
+                b1 = "true";
+                document.getElementById(i-1).style.fontWeight = "bold";
+            } else {
+                document.getElementById('btn1').style.backgroundColor = "#2980B9";
+                document.getElementById(i-1).style.fontWeight = "normal";
+                b1 = "false";
             }
-
-            //Button zuruecksetzen
-            function reset() {
-                recognizing = false;
-                document.getElementById('appbutton').innerHTML = "Start";
+        }
+        
+        function italic() {
+            if(b2 == "false") {
+                document.getElementById('btn2').style.backgroundColor = "#7db3d4";
+                b2 = "true";
+                document.getElementById(i-1).style.fontStyle = "italic";
+            } else {
+                document.getElementById('btn2').style.backgroundColor = "#2980B9";
+                document.getElementById(i-1).style.fontStyle = "normal";
+                b2 = "false";
             }
+        }
           
+        function underline() {
+            if(b3 == "false") {
+                document.getElementById('btn3').style.backgroundColor = "#7db3d4";
+                b3 = "true";
+                document.getElementById(i-1).style.textDecoration = "underline";
+            } else {
+                document.getElementById('btn3').style.backgroundColor = "#2980B9";
+                document.getElementById(i-1).style.textDecoration = "none";
+                b3 = "false";
+            }
+        }
 
-            document.getElementById('clear-all').addEventListener('click', function() {
-              transcription.textContent = '';
-              log.textContent = '';
-            });
-            */
+            
           }
 
          </script>
