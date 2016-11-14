@@ -96,26 +96,3 @@ document.onkeydown = function(event) {
     mainroutine();
   }
 }
-//----Supplemental Code To Test System---
-
-//------
-function runtest(){
-
-var testdata = new Array (
-  new Array ("Hello."),
-  new Array ("I can't understand you."),
-  new Array ("I'm going to New York tomorrow."),
-  new Array ("Are you serious?"),
-  new Array ("Because they can."),
-  new Array ("I'm really sorry about that.")
-
-);
-
-
-          for (train=0; train < testdata.length; train++) {
-             document.mainscreen.BasicTextArea4.value = testdata[train];
-             mainroutine()
-
-             }
-
-}
