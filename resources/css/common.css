@@ -72,27 +72,59 @@ a {
 	padding: 0;
 	text-align: top; 
 }
-/*------*/
 
+/* ----- Top Menu ----- */
 
-#top-menu {
-	z-index: 1;
+#top-menu-container
+{
     background: #454455;
     height: 50px;
-    position: fixed;
-    width: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    top: 0;
     padding: 0;
-    min-width: 900px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
+
+#top-menu
+{
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    display: table;
+    height: 100%;
+}
+
+#top-menu a
+{
+    display: table-cell;
+    height: 100%;
+    padding: 0 25px;
+    transition: font-size 0.3s;
+    vertical-align: middle;
+}
+
+#top-menu a:hover
+{
+    background-color: #333333;
+    font-size: 20px;
+}
+
+#top-menu a.current
+{
+    background-color: orange;
+    display: table-cell;
+    height: 100%;
+    padding: 0 25px;
+    vertical-align: middle;
+}
+
+/* --- Obsolete? --- */
 
 .button {
     background-color: #454455;
     border: none;
     color: white;
-    padding: 15px 32px;
+    
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -101,7 +133,7 @@ a {
     float: left;
     height: 100%;
     margin-left: 50px;
-    transition: font-size 0.3s;
+    
 }
 
 .button:hover {
@@ -125,7 +157,7 @@ a {
     color: white;
 }
 
-#startseite {
+#start {
 	position: relative;
 	opacity: 1;
 
