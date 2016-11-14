@@ -82,7 +82,7 @@ function initScreen() {
 //-------
 function updatescreen() {
  document.getElementById('hilfe_output').innerHTML = soutput;
- document.getElementById('hilfe_input').value = "Frag mich etwas...";
+ document.getElementById('hilfe_input').value = "";
 }
 
 //-------
