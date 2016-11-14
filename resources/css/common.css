@@ -37,8 +37,7 @@ a {
 /*------*/
 .wrapper{
 	width:900px;  
-    margin: 50px;
-    padding: 0;  
+    margin: auto;
 	text-align: center;	
 }
  
@@ -105,9 +104,6 @@ a {
     transition: font-size 0.3s;
 }
 
-.button:focus {
-	outline: none;
-}
 .button:hover {
     background-color: #333333;
     font-size: 20px;
