@@ -103,6 +103,7 @@ a {
     height: 100%;
     margin-left: 50px;
     transition: font-size 0.3s;
+	outline: none;
 }
 
 .button:hover {
