@@ -1,5 +1,12 @@
-  var convpatterns = new Array ( 
+  var convpatterns = new Array (
+  new Array ("(.*) (Hilfe|helfen)(.*)\.","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter team_5@outlook.de."),
+  new Array ("(Hilfe|helfen)","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter: team_5@outlook.de."),
+  new Array (".*(Einschalten|Ausschalten).*","Klicken Sie dazu auf das blaue Symbol in der linken unteren Ecke."),
 new Array (".*hallo.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
+      new Array (".*hi.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
+      new Array (".*hey.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
+      new Array (".*Guten Tag.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
+      new Array (".*Gruß.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
 new Array (".*dein name.*","Mein Name ist Alice.","Alice","Alice, einen Nachnamen besitze ich nicht.","Ich bin Alice","Sag einfach Alice zu mir."),
 new Array (".*heißt du.*","Mein Name ist Alice.","Alice","Alice, einen Nachnamen besitze ich nicht.","Ich bin Alice","Sag einfach Alice zu mir."),
   new Array ("Ich brauche (.*)\." , "Warum brauchst du $1?", "Würde es dir wirklich helfe, wenn du $1 bekommst?" , "Bist du sicher, dass du $1 brauchst?"),
@@ -29,11 +36,14 @@ new Array (".*heißt du.*","Mein Name ist Alice.","Alice","Alice, einen Nachname
   new Array ("(.*) (Vater|Vati|Papa)(.*)\.","Erzähl mir mehr über deinen Vater.", "Hast du eine gute Beziehung zu deinem Vater?","Familie ist sehr wichtig."),
   new Array ("(.*) (Kind|Tochter|Sohn|Schwester|Bruder)(.*)\.","Hattest du als Kind viele Freunde?",	"Was ist deine schönste Kinheitserinnerung?","Kannst du dich an deine Kindheitsträume erinner?","Hattest du eine schöne Kindheit?","Familie ist sehr wichtig."),
   new Array ("(.*) dein lieblings(.*?)[\?]","Ich habe keinen Favouriten.","Ich habe so viele Favouriten. Es ist schwer sich für einen zu entscheiden"),
-  new Array ("(.*) (E-Mail|Mail|EMail|Adresse|Kontakt)(.*)\.",	"Unsere EMail lautet: team_5@outlook.de"),
+  new Array ("(.*)(E-Mail|Mail|EMail|Adresse|Kontakt)(.*)\.",	"Unsere EMail lautet: team_5@outlook.de"),
+  new Array ("(E-Mail|Mail|EMail|Adresse|Kontakt)",	"Unsere EMail lautet: team_5@outlook.de"),
   new Array ("(.*) (Deutsch|Sprache|Englisch)(.*)\.","Zur Zeit verstehe ich nur Deutsch.","Ich lerne momentan in der Abendschule Englisch."),
   new Array ("(.*) (alt|Alter|geboren)(.*)\.","Ich altere nicht.","Ich wurde im November 2016 geboren."),
   new Array ("(.*) (dumm|Idiot)(.*)\.","Das ist sehr unhöflich.","Du bist gemein.","Was würde deine Mutter dazu sagen?"),
   new Array ("(.*) (Hilfe|helfen)(.*)\.","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter team_5@outlook.de."),
+  new Array ("(Hilfe|helfen)","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter: team_5@outlook.de."),
+  new Array ("(Hilfe|helfen)","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter: team_5@outlook.de."),
   new Array ("(.*?)[\?]","Hmm, ich bin mir nicht sicher..", "Das ist eine gute Frage...",  "Vieleicht findest du die Antwort im Internet...","Warum fragst du?","Wenn das wirklich wichtig ist schreib uns doch eine E-Mail."),
   new Array ("(.*)","Hast du irgenwelche Hobbies?", "Ich verstehe,  erzähl mir mehr...", "Über was genau reden wir?", "Kannst du mir das nocheinmal erklären..", "Um, ich habe das Gefühl die Konversation läuft nicht richtig..",  "Oh wirklich?",  "Hmm, ist das so..", "Bitte erzähl mir mehr.","Können wir über etwas anderes reden... Erzähl mir was über deine Familie.","Hast du vielleicht eine Frage zu der App","I verstehe.","Sehr interessant.","Was denkst du darüber?","Womit verbringst du die meiste Zeit?","Kommst du mit der Bedienung der App klar?","Wie findest du unsere App?")
     
@@ -54,11 +64,19 @@ soutput = ""
 function conversationpatterns() {
 	var Eingabe = uinput;
 	Eingabe = Eingabe.toUpperCase();    
-	if((Eingabe.indexOf('BEFEHL') != -1) || (Eingabe.indexOf('CODE') != -1) || (Eingabe.indexOf('BEDIENUNG') != -1)) {
-		alert("Befehle folgen gleich");
+	if((Eingabe.indexOf('BEFEHL') != -1) || (Eingabe.indexOf('CODE') != -1) || (Eingabe.indexOf('BEDIENUNG') != -1) || (Eingabe.indexOf('TEXT') != -1) || (Eingabe.indexOf('ABSATZ') != -1) || (Eingabe.indexOf('NEUE ZEILE') != -1) || (Eingabe.indexOf('ÜBERSCHRIFT') != -1) || (Eingabe.indexOf('FETT') != -1) || (Eingabe.indexOf('UNTERSTRICH') != -1) || (Eingabe.indexOf('KURSIV') != -1)) {
+        document.getElementById("hilfe_inhalt2").style.display = "none";
+        document.getElementById("hilfe_inhalt3").style.display = "none";
+		document.getElementById("hilfe_inhalt1").style.display = "block";
 	} else if((Eingabe.indexOf('FUNKTIONIERT') != -1) || (Eingabe.indexOf('PROBLEM') != -1) || (Eingabe.indexOf('BEACHTEN') != -1)) {
 		//akt Chrome Version Java aktivieren
+        document.getElementById("hilfe_inhalt1").style.display = "none";
+        document.getElementById("hilfe_inhalt3").style.display = "none";
+        document.getElementById("hilfe_inhalt2").style.display = "block";
 	} else {
+        document.getElementById("hilfe_inhalt1").style.display = "none";
+        document.getElementById("hilfe_inhalt2").style.display = "none";
+        document.getElementById("hilfe_inhalt3").style.display = "block";
    for (i=0; i < convpatterns.length; i++) {
     re = new RegExp (convpatterns[i][0], "i");
     if (re.test(uinput)) {
@@ -82,7 +100,7 @@ function initScreen() {
 //-------
 function updatescreen() {
  document.getElementById('hilfe_output').innerHTML = soutput;
- document.getElementById('hilfe_input').value = "";
+    document.getElementById('hilfe_input').value = "";
 }
 
 //-------

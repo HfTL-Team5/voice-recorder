@@ -305,25 +305,28 @@ a {
 	float: left;
 	width: 70%;
 	height: 94vh;
-	background: #999455;
+	background: rgb(214, 214, 214);
 	margin: 20px;
 	display: none;
+    overflow: scroll;
 }
 #hilfe_inhalt2 {
 	float: left;
 	width: 70%;
 	height: 94vh;
-	background: #900455;
+	background: #rgb(214, 214, 214);
 	margin: 20px;
 	display: none;
+    overflow: scroll;
 }
 #hilfe_inhalt3 {
 	float: left;
 	width: 70%;
 	height: 94vh;
-	background: #D7E9EC;
+	background: #rgb(214, 214, 214);
 	margin: 20px;
 	display: block;
+    overflow: scroll;
 }
 #hilfe_rechts {
 	position: fixed;
@@ -386,4 +389,17 @@ a {
 }
 .btn:focus {
 outline: none;
+}
+#hhead1 {
+	margin-top: 80px;
+}
+#hhead2 {
+	margin-top: 50px;
+    margin-left: 80px;
+    margin-right: 100px;
+}
+#htext {
+	margin-top: 20px;
+    margin-left: 130px;
+    margin-right: 100px;
 }
