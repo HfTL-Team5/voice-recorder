@@ -216,18 +216,15 @@ a {
 }
 
 #projekt-text-link{
-	text-align: center;
+	text-align: left;
 	color: black;
 	text-decoration: none;
 	transition: 0.3s;
+	font-size: 18px;
 }
 
 #projekt-text-link:hover{
 	opacity: 0.3;
-}
-
-#projekt-text-link{
-	
 }
 
 #team {
