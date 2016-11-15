@@ -7,23 +7,22 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
         <link href="resources/css/common.css" rel="stylesheet" type="text/css">
         
+        <!-- import javascript files -->
+        <script type="text/javascript" src="resources/js/jquery.1.7.1.min.js"></script>
+        <script type="text/javascript" src="resources/js/scrolling.js"></script>
+
         <!-- link favicon -->
         <link href="resources/images/team-logo.png" rel="shortcut icon">
 
         <!-- page title -->
         <title>Startseite</title>
-		
-	<script type="text/javascript" src="resources/js/jquery.1.7.1.min.js"></script>
-	<script type="text/javascript" src="resources/js/scrolling.js"></script>
 
     </head>
 
     <body>
 
-        <div style="clear: both"></div>
-
-        <!-- Top Menu -->
-        <div id="top-menu-container">
+        <!-- top menu -->
+        <nav id="top-menu-container">
             <div id="top-menu">
                 <a href="check.html">App</a>
                 <a href="#start" class="current">Startseite</a>
@@ -32,99 +31,127 @@
                 <a href="hilfe.html">Hilfe</a>
                 <a href="impressum.html">Impressum</a>
             </div>
-        </div>
+        </nav>
 
-        <div id="content">
+        <!-- main content -->
+        <main id="content">
 
-            <div id="start">
-				<p id="text"><br><br>T5 macht<br>es einfach</p><br><br><br>
-				<a href="check.html" id="content-button">zur App</a>
-            </div>
+            <!-- introduction -->
+            <article class="page" id="start" style="display: flex; flex-direction: column; justify-content: center;">
 
-            <div id="projekt"><img src="resources/images/projekt-foto.jpg" id="projekt-foto"><br><br><br><br><p id="projekt-text-titel">Das ist deine T5</p> 
-				<br><p id="projekt-text-p">Es ist ein Teamarbeit an der HFTL.............</p>
-				<br><br><br><div id="projekt-text-link">
-                		<b>Projektbeschreibung:</b>
-             		   	<br><br>Wir von T5 (Team5) sind eine kleine Gruppe von Studenten, die ein kleines Projekt anstrebt, welche in die Richtung von Künstlicher Intelligenz streben soll. Dafür haben wir in unserem Projekt ein Diktiergerät entworfen, welches Usern behilflich sein soll. Realisiert werden soll das in einer App/WebApp. (mehr Informationen dazu aber in der Produktbeschreibung)
-                		<br><br>Um unser Projekt besser darstellen bzw. veranschaulichen zu können und um wir eine gewisse Struktur hineinzubekommen, haben wir hierfür einen PSP(Projektstrukturplan) erstellt. Dieser Plan umfasst als Hauptaugenmerk die Phasen:
-                		<ol>
-                		<li><i>Projektmanagement</i>: In diesem Punkt wird das Projekt gemanagt. Das bedeutet, dass die Mitglieder dieses Sub Teams für Kostenplanung, Zeitplanung, Marketing, etc. zuständig sind. Sie tragen Sorge dafür, dass im Idealfall alles reibungslos abläuft.</li>
-                		<br><li><i>Analyse</i>: Hier werden zu den verschiedenen Themen wie Tests, Programmierung und Design erfasst, ausgewertet und entschieden, welche das passendste dafür wäre.</li>  
-                		<br><li><i>Entwurf</i>: Wie der Name schon sagt, werden hier für ER-Modelle, Struktogramme, GUI etc. Entwürfe erstellt, ggf. nachbearbeitet</li>
-               			<br><li><i>Realisierung</i>: Hier machen wir uns an die Arbeit, sodass aus den Entwürfen fertige Datenbanken entstehen. Aus den Struktogrammen werden dann die Programme erstellt und die Website wird angefertigt. </li>
-                		<br><li><i>Test</i>: Dies dient dazu den entwickelten Quellcode mit JUnit-Tets auf Fehler zu überprüfen, ggf. diese auszubessern.</li>
-                		<br><li><i>Abschluss</i>: In dieser Phase werden die letzten anstehenden Aufgaben erledigt, wie z.B. Video, Plakate und Präsentationen zu erstellen. Die wissenschaftliche Arbeit wird geschrieben und die Software wird veröffentlicht.</li>
-                		</ol>
-                		<br><br><b>Produktbeschreibung:</b>
-                		<br><br>Unsere erstellte Software ist ein Diktiergerät. Es soll per Knopfdruck die gesprochene Aufnahme des Anwenders im ersten Schritt aufgenommen und im zweiten Schritt erfolgt die Umwandlung in einen Text. Danach soll es selbst entscheiden, ob es sich um den gesprochenen Text, um einen Befehl oder um eine einfache Aussage handelt. Wenn nein, gibt er den gesprochenen Text aus, wenn ja soll der Befehl interpretiert und dann ausgeführt werden. Es kann natürlich, bevor der Befehl ausgeführt wird, vom Anwender der Text korrigiert werden, falls es das Programm falsch verstanden hat. 
-                		</div>
-			</div>
-            <div id="team"><p style="margin: 0; padding: 0;">Wir sind immer für Sie da</p><br><p id="projekt-text-titel" style="text-align: left; padding-bottom: 120px">T5 Team</p>
+                <div>
+                    <p id="text" style="margin-bottom: 50px;">Ein Studentenprojekt um Chatbots</p>
+                    <a href="check.html" id="content-button">zur App</a>
+                </div>
+
+            </article>
+
+            <!-- project-presentation -->
+            <article class="page gray" id="projekt">
+
+                <h1>Das Projekt</h1>
+
+                <p class="normalised left greater">
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.<br />
+                    Lorem Ipsum Dolor Sit Amet.
+                </p>
+
+			</article>
+
+            <!-- team-presentation -->
+            <article class="page" id="team">
+
+                <h1>Das Team</h1>
+                
 				<div class="wrapper">
 					<div class="table">
 						<div class="row">
-							<div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div><div class="col c25"><h1>Philip Jurke</h1><p>Team Leiter</p></div>
+							<div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Philip Jurke</div><p>Projektleiter</p></div>
 						</div>
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-							<div class="col c25"><h1 id="text-table-projekt">Nico Richter</h1><p id="text-table-projekt">Projektteammitglieder</p></div><div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+							<div class="col c25"><div class="project-member">Nico Richter</div><p>Projektteammitglied Technik</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
 						</div>
 						<div class="row">						
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div><div class="col c25"><h1>Robert Wünsche</h1><p>Projektteammitglieder</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Robert W&#252;nsche</div><p>Projektteammitglied Programmierung</p></div>
 						</div>
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-                            <div class="col c25"><h1 id="text-table-projekt">Khaled Ali</h1><p id="text-table-projekt">Projektteammitglieder</p></div><div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Khaled Ali</div><p>Projektteammitglied Test</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
 						</div>
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div><div class="col c25"><h1>Amer Succer</h1><p>Projektteammitglieder/Projektmitglieder</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Amer Succer</div><p>Projektteammitglied Design</p></div>
 						</div>
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-                            <div class="col c25"><h1 id="text-table-projekt">Sven Jacobsen</h1><p id="text-table-projekt">Projektmitglieder</p></div><div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Sven Jacobsen</div><p>Projektmitglied</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
 						</div> 
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div><div class="col c25"><h1>Abdullah Mando</h1><p>Projektmitglieder</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Abdullah Mando</div><p>Projektmitglied</p></div>
 						</div>
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-                            <div class="col c25"><h1 id="text-table-projekt">Richie Kurniawan</h1><p id="text-table-projekt">Projektmitglieder</p></div><div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Richie Kurniawan</div><p>Projektmitglied</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
 						</div>
 						<div class="row">
 							<div class="col zwischen"></div>
 						</div>
 						<div class="row">
-							<div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div><div class="col c25"><h1>Dmytro Yermolenko</h1><p>Projektmitglieder</p></div>
-						</div>						
+							<div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                            <div class="col c25"><div class="project-member">Dmytro Yermolenko</div><p>Projektmitglied</p></div>
+						</div>		
+                        <div class="row">
+                            <div class="col zwischen"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col c25"><div class="project-member">Antony Muindi</div><p>Projektmitglied</p></div>
+                            <div class="col c75"><img src="resources/images/project-members/philip-jurke.jpg" width="520" height="369"></div>
+                        </div>
 					</div>
 				</div>
-			 </div>
 
-            <div id="footer">
-				<div id="footer-center">
-					<a href="https://github.com/HfTL-Team5"><img src="resources/images/github.svg" width="50" height="50"></a>
-					<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
-				</div>
-			</div>
+			 </article>
 
-        </div>
+        </main>
+
+        <!-- document footer -->
+        <footer>
+            <a href="https://github.com/HfTL-Team5/"><img src="resources/images/github.svg" width="50" height="50"></a>
+            <a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
+        </footer>
         
     </body>
 </html>
