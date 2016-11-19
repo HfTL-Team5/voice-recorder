@@ -55,9 +55,30 @@ soutput = ""
 
 //-------
  function mainroutine() {
- uinput = document.getElementById('hilfe_input').value;;
-  conversationpatterns();
-  updatescreen();
+     uinput = document.getElementById('hilfe_input').value;
+     conversationpatterns();
+     updatescreen();
+}
+
+function btn1() {
+    uinput = document.getElementById('btn1').innerHTML;
+    conversationpatterns();
+    updatescreen();
+    return 0;
+}
+
+function btn2() {
+    uinput = document.getElementById('btn2').innerHTML;
+    conversationpatterns();
+    updatescreen();
+    return 0;
+}
+
+function btn3() {
+    uinput = document.getElementById('btn3').innerHTML;
+    conversationpatterns();
+    updatescreen();
+    return 0;
 }
 
 //-------
@@ -68,7 +89,7 @@ function conversationpatterns() {
         document.getElementById("hilfe_inhalt2").style.display = "none";
         document.getElementById("hilfe_inhalt3").style.display = "none";
 		document.getElementById("hilfe_inhalt1").style.display = "block";
-	} else if((Eingabe.indexOf('FUNKTIONIERT') != -1) || (Eingabe.indexOf('PROBLEM') != -1) || (Eingabe.indexOf('BEACHTEN') != -1)) {
+	} else if((Eingabe.indexOf('FUNKTIONIERT') != -1) || (Eingabe.indexOf('PROBLEM') != -1) || (Eingabe.indexOf('ACHTEN') != -1)) {
 		//akt Chrome Version Java aktivieren
         document.getElementById("hilfe_inhalt1").style.display = "none";
         document.getElementById("hilfe_inhalt3").style.display = "none";
@@ -99,7 +120,7 @@ function initScreen() {
 
 //-------
 function updatescreen() {
- document.getElementById('hilfe_output').innerHTML = soutput;
+    document.getElementById('hilfe_output').innerHTML = soutput;
     document.getElementById('hilfe_input').value = "";
 }
 
