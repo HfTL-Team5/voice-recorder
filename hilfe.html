@@ -17,6 +17,48 @@
 
     </head>
     <body>
+        <script type="text/javascript" language="JavaScript">
+            window.onload = function () {
+                var z0 = 0;
+                var z1 = 0;
+                var z2 = 0;
+                var z3 = 0;
+                var i;
+                
+                TextArr = new Array() 
+                        TextArr[TextArr.length] = "Welche Befehle gibt es?"; 
+                        TextArr[TextArr.length] = "Worauf muss ich achten?";
+                        TextArr[TextArr.length] = "Wieso funktioniert die App bei mir nicht?"; 
+                        TextArr[TextArr.length] = "Wie heißt du?";
+                        TextArr[TextArr.length] = "Wie schreibe ich eine Überschrift"; 
+                        TextArr[TextArr.length] = "Wie mache ich einen Absatz?";
+                        TextArr[TextArr.length] = "Wie gebe ich einen Befehl ein?"; 
+                        TextArr[TextArr.length] = "Kann man Kursiv schreiben?";
+                        TextArr[TextArr.length] = "Wie schreibe ich unterstrichen"; 
+                        TextArr[TextArr.length] = "Wie lautet eure Email Ardesse?";
+                        TextArr[TextArr.length] = "Ich komme mit der Bedienung nicht klar."; 
+                        TextArr[TextArr.length] = "Kann man Fett schreiben?";
+                //Zufallszahlen erzeugen
+                z0 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
+                do {
+                    z1 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
+                }
+                while (z1 == z0);
+                do {
+                    z2 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
+                }
+                while (z2 == z0 || z2 == z1);
+                do {
+                    z3 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
+                }
+                while (z3 == z0 || z3 == z1 || z3 == z2);    
+                document.getElementById('btn1').innerHTML = TextArr[z0];
+                document.getElementById('btn2').innerHTML = TextArr[z1];
+                document.getElementById('btn3').innerHTML = TextArr[z2];
+                document.getElementById('btn4').innerHTML = TextArr[z3];
+                
+            }
+        </script>
 
         <div style="clear: both"></div>
 
@@ -61,9 +103,10 @@
 				<div id="hilfe_rechts">
 					<p id="hilfe_output"></p>
 					<hr class="linie">
-					<button id="btn1" class="btn" onclick="btn1()">Welche Befehle gibt es?</button><br>
-					<button id="btn2" class="btn" onclick="btn2()">Worauf muss ich achten?</button><br>
-					<button id="btn3" class="btn" onclick="btn3()">Wieso funktioniert die App bei mir nicht?</button>
+					<button id="btn1" class="btn" onclick="btn1()"></button><br>
+					<button id="btn2" class="btn" onclick="btn2()"></button><br>
+					<button id="btn3" class="btn" onclick="btn3()"></button><br>
+                    <button id="btn4" class="btn" onclick="btn4()"></button>
 					<input type="text" id="hilfe_input" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" placeholder="Frag mich etwas...">
 				</div>
 			</div>
