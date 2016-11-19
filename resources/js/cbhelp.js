@@ -81,6 +81,14 @@ function btn3() {
     return 0;
 }
 
+function btn4() {
+    uinput = document.getElementById('btn4').innerHTML;
+    conversationpatterns();
+    updatescreen();
+    return 0;
+}
+
+
 //-------
 function conversationpatterns() {
 	var Eingabe = uinput;
