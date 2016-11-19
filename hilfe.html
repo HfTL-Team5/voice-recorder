@@ -61,21 +61,20 @@
 				<div id="hilfe_rechts">
 					<p id="hilfe_output"></p>
 					<hr class="linie">
-					<button id="btn1" class="btn">Welche Befehle gibt es?</button><br>
-					<button id="btn2" class="btn">Worauf muss ich achten?</button><br>
-					<button id="btn3" class="btn">Wieso funktioniert die App bei mir nicht?</button>
+					<button id="btn1" class="btn" onclick="btn1()">Welche Befehle gibt es?</button><br>
+					<button id="btn2" class="btn" onclick="btn2()">Worauf muss ich achten?</button><br>
+					<button id="btn3" class="btn" onclick="btn3()">Wieso funktioniert die App bei mir nicht?</button>
 					<input type="text" id="hilfe_input" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" placeholder="Frag mich etwas...">
 				</div>
 			</div>
 
         </div>
 
-		<div id="footer">
-			<div id="footer-center">
-				<a href="https://github.com/HfTL-Team5"><img src="resources/images/github.svg" width="50" height="50"></a>
-				<a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
-			</div>
-		</div>
+		<!-- document footer -->
+        <footer>
+            <a href="https://github.com/HfTL-Team5/"><img src="resources/images/github.svg" width="50" height="50"></a>
+            <a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
+        </footer>
 
     </body>
 </html>
