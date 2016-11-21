@@ -253,7 +253,7 @@ a {
 	background: #rgb(214, 214, 214);
 	margin: 20px;
 	display: block;
-    overflow: scroll;
+    overflow: none;
 }
 #hilfe_rechts {
 	position: fixed;
@@ -423,4 +423,30 @@ article.page.gray { background-color: #eceae9; color: #000; }
 .project-member
 {
     font-weight: bold;
+}
+
+.helpelement {
+    animation: pulse 15s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #001F3F;
+  }
+  20% {
+    background-color: #FF4136;
+  }
+  40% {
+    background-color: #e8ff36;
+  }
+  60% {
+    background-color: #5dff36;
+  }
+  80% {
+    background-color: #36e8ff;
+  }
+  100% {
+    background-color: #001F3F;
+  }
 }
