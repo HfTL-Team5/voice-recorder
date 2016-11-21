@@ -92,11 +92,12 @@
             //var transcription = document.getElementById('transcription');   //Ausgabe
             var transcription;
             var Eingabe;
+            var start_timestamp;
             var i = 0;
           
         function toggle() {
             var rec = document.getElementById('skitt-listening-text__instructions').innerHTML;
-            if (rec == "recognizing true") {    //ist AN
+            if (rec == "Wie lautet dein Befehl?") {    //ist AN
                 transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
                 //recognizer.onaudiostart = function(event){
                     //alert("speech start");
@@ -175,6 +176,22 @@
                 }
                 transcription.textContent = final;
                 transcription.textContent = interim;
+            };
+              
+            recognizer.onerror = function(event) {
+                if (event.error == 'no-speech') {
+                    alert("Oh, ich habe nichts verstanden...");
+                }
+                if (event.error == 'audio-capture') {
+                    alert("Oh, ich konnte kein Mikrofon finden. Schau bitte mal nach, ob es richtig installiert ist...");
+                }
+                if (event.error == 'not-allowed') {
+                  if (event.timeStamp - start_timestamp < 100) {
+                      alert("Oh, das Mikrofon wurde blockiert. Geh bitte auf folgende Seite: chrome://settings/contentExceptions#media-stream");
+                  } else {
+                        alert("Oh, die Benutzung des Mikrofons wurde verweigert...");
+                  }
+                }
             };
               
         document.getElementById('btn1').addEventListener('click', function() {bold();});
