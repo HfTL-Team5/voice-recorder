@@ -48,18 +48,33 @@ new Array (".*heißt du.*","Mein Name ist Alice.","Alice","Alice, einen Nachname
   new Array ("(.*)","Hast du irgenwelche Hobbies?", "Ich verstehe,  erzähl mir mehr...", "Über was genau reden wir?", "Kannst du mir das nocheinmal erklären..", "Um, ich habe das Gefühl die Konversation läuft nicht richtig..",  "Oh wirklich?",  "Hmm, ist das so..", "Bitte erzähl mir mehr.","Können wir über etwas anderes reden... Erzähl mir was über deine Familie.","Hast du vielleicht eine Frage zu der App","I verstehe.","Sehr interessant.","Was denkst du darüber?","Womit verbringst du die meiste Zeit?","Kommst du mit der Bedienung der App klar?","Wie findest du unsere App?")
     
 );
-
+var m=1;
 uinput = ""
 soutput = ""
 //-----The Core Code------
 
 //-------
  function mainroutine() {
-     uinput = document.getElementById('hilfe_input').value;
+     uinput = document.getElementById('hilfe_input_feld').value;
+     
+     var newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_input";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
+     newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_output";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
      conversationpatterns();
      updatescreen();
 }
-
+/*
 function btn1() {
     uinput = document.getElementById('btn1').innerHTML;
     conversationpatterns();
@@ -88,7 +103,7 @@ function btn4() {
     return 0;
 }
 
-
+*/
 //-------
 function conversationpatterns() {
 	var Eingabe = uinput;
@@ -128,8 +143,10 @@ function initScreen() {
 
 //-------
 function updatescreen() {
-    document.getElementById('hilfe_output').innerHTML = soutput;
-    document.getElementById('hilfe_input').value = "";
+    document.getElementById(m-2).innerHTML = uinput;
+    document.getElementById(m-1).innerHTML = soutput;
+    document.getElementById(m-1).scrollIntoView();
+    document.getElementById('hilfe_input_feld').value = "";
 }
 
 //-------
