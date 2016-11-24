@@ -175,7 +175,9 @@ a {
 }
 
 #hilfe {
-    background: #ECEAE9;
+    background: url(../images/bg.png) no-repeat;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     height: 100vh;
     margin-top: 40px;
 	width: 100%;
@@ -252,26 +254,43 @@ a {
 	height: 94vh;
 	background: #rgb(214, 214, 214);
 	margin: 20px;
-	display: block;
+	display: none;
     overflow: none;
 }
-#hilfe_rechts {
-	position: fixed;
+#hilfe_rechts_outline {
+    background: #582758;
+    position: fixed;
+    right: 0px;
 	margin: 20px;
 	margin-left: 0px;
 	width: 25%;
-	height: 70vh;
-	background: #333333;
-	display: inline;
-	z-index: 0;
-	text-align: center;
+	height: 600px;
+    display: inline;
+	z-index: 2;
+    border-radius: 40px;
 }
-#hilfe_input {
-	position: absolute;
-	bottom: 0;
+#hilfe_rechts {
+    background: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 21px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    padding: 10px;
+    height: 500px;
+	text-align: left;
+    display: block;
+}
+#hilfe_Ausgabefeld {
+    height: 430px;
+    overflow-x: none;
+	overflow-y: auto;
+}
+#hilfe_input_feld {
+	position: relative;
 	display: block;
 	margin: 0;
-	width: 100%;
+    width: 100%;
 	font-family: sans-serif;
 	font-size: 18px;
 	color:  #B0B0B0;
@@ -282,22 +301,36 @@ a {
   	border: solid 5px #c9c9c9;
   	transition: border-color 0.3s;
 }
-#hilfe_input:focus {
+#hilfe_input_feld:focus {
 	outline: none;
 	border: solid 5px #969696;
 }
-#hilfe_output {
-	font-family: sans-serif;
+.hilfe_input {
+    font-family: sans-serif;
 	font-size: 18px;
 	margin: 20px;
-	color:  #D7D7D7;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 40%;
+	color:  #454455;
+    font-weight: bold;
+}
+.hilfe_output {
+	font-family: sans-serif;
+	font-size: 18px;
+	margin-right: 30%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+	color:  #454455;
+    font-weight: bold;
 }
 .linie {
 	border :none;
-	
-	background-color:#D7D7D7;
-	height: 2px;
-	margin: 0px 50px 0px 50px;
+	background-color: black;
+	height: 8px;
+	margin: 21px 80px 0px 80px;
+    border-radius: 100px;
 }
 .btn {
 	font-family: Arial;
