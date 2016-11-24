@@ -52,10 +52,10 @@
                     z3 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
                 }
                 while (z3 == z0 || z3 == z1 || z3 == z2);    
-                document.getElementById('btn1').innerHTML = TextArr[z0];
-                document.getElementById('btn2').innerHTML = TextArr[z1];
-                document.getElementById('btn3').innerHTML = TextArr[z2];
-                document.getElementById('btn4').innerHTML = TextArr[z3];
+                //document.getElementById('btn1').innerHTML = TextArr[z0];
+                //document.getElementById('btn2').innerHTML = TextArr[z1];
+                //document.getElementById('btn3').innerHTML = TextArr[z2];
+                //document.getElementById('btn4').innerHTML = TextArr[z3];
                 
             }
         </script>
@@ -100,15 +100,15 @@
 				</div>
 				<div id="hilfe_inhalt3" class="helpelement">
 				</div>
-				<div id="hilfe_rechts">
-					<p id="hilfe_output"></p>
-					<hr class="linie">
-					<button id="btn1" class="btn" onclick="btn1()"></button><br>
-					<button id="btn2" class="btn" onclick="btn2()"></button><br>
-					<button id="btn3" class="btn" onclick="btn3()"></button><br>
-                    <button id="btn4" class="btn" onclick="btn4()"></button>
-					<input type="text" id="hilfe_input" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" placeholder="Frag mich etwas...">
-				</div>
+                <div id="hilfe_rechts_outline">
+                    <hr class="linie">
+                    <div id="hilfe_rechts">
+                        <div id="hilfe_Ausgabefeld">
+                            <p class="hilfe_output" id="0">Schreib mir etwas...</p>
+                        </div>
+                        <input type="text" id="hilfe_input_feld" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" placeholder="Frag mich etwas...">
+                    </div>
+                </div>
 			</div>
 
         </div>
