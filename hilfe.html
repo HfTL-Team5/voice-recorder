@@ -22,7 +22,6 @@
                 var z0 = 0;
                 var z1 = 0;
                 var z2 = 0;
-                var z3 = 0;
                 var i;
                 
                 TextArr = new Array() 
@@ -48,15 +47,9 @@
                     z2 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
                 }
                 while (z2 == z0 || z2 == z1);
-                do {
-                    z3 = 0 + parseInt( Math.random() * ( (11 + 1 ) - 0 ));
-                }
-                while (z3 == z0 || z3 == z1 || z3 == z2);    
-                //document.getElementById('btn1').innerHTML = TextArr[z0];
-                //document.getElementById('btn2').innerHTML = TextArr[z1];
-                //document.getElementById('btn3').innerHTML = TextArr[z2];
-                //document.getElementById('btn4').innerHTML = TextArr[z3];
-                
+                document.getElementById('btn1').innerHTML = TextArr[z0];
+                document.getElementById('btn2').innerHTML = TextArr[z1];
+                document.getElementById('btn3').innerHTML = TextArr[z2];
             }
         </script>
 
@@ -77,6 +70,15 @@
         <div id="content">
 
 			<div id="hilfe">
+                <div class="cloud" id="cloud1">
+                    <button id="btn1" class="btn" onclick="btn1()">Welche Befehle gibt es?</button>
+                </div>
+                <div class="cloud" id="cloud2">
+                    <button id="btn2" class="btn" onclick="btn2()">Worauf muss ich achten?</button>
+                </div>
+                <div class="cloud" id="cloud3">
+                    <button id="btn3" class="btn" onclick="btn3()">Wie lautet eure Email Adresse?</button>
+                </div>
                 <div id="hilfe_rechts_outline">
                     <hr class="linie">
                     <div id="hilfe_rechts">
