@@ -196,7 +196,7 @@ a {
 
 #impressum {
     background: #ECEAE9;
-    height: 150vh;
+    height: 100vh;
 }
 
 #unsupportedmain {
@@ -292,23 +292,72 @@ a {
 .hilfe_input {
     font-family: sans-serif;
 	font-size: 18px;
-	margin: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 40%;
 	color:  #454455;
     font-weight: bold;
+    
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+    float: right;    
+    margin: 5px 20px 5px 45px;
+    margin-left: 30%;
+}
+.hilfe_input:before{
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;
 }
 .hilfe_output {
 	font-family: sans-serif;
 	font-size: 18px;
-	margin-right: 30%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 10px;
 	color:  #454455;
     font-weight: bold;
+    
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 10px 18px;
+    position: relative;
+    vertical-align: top;
+    float: left;
+    margin: 5px 45px 5px 20px;
+    margin-right: 30%;
 }
+
+.hilfe_output:before {  
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;
+}      
+    
+
 .linie {
 	border :none;
 	background-color: black;
@@ -317,20 +366,17 @@ a {
     border-radius: 100px;
 }
 .btn {
+    background-color: Transparent;
 	font-family: Arial;
-	color: #D7D7D7;
 	font-size: 20px;
-	background: #666666;
-	padding: 10px 20px 10px 20px;
+	color: #363636;
+	font-weight: bold;
 	text-decoration: none;
 	border: 0;
 	cursor: pointer;
-	margin-top: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
 }
 .btn:hover {
-  background: #828282;
+  color: #525252;
   text-decoration: none;
 }
 .btn:focus {
@@ -427,4 +473,29 @@ article.page.gray { background-color: #eceae9; color: #000; }
 .project-member
 {
     font-weight: bold;
+}
+
+.cloud {
+    position: absolute;
+    background-image: url("../images/cloud.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 100% 100%, cover;
+	padding: 50px 30px 10px 30px;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+    max-width: 15%;
+}
+#cloud1 {
+    top: 30%;
+    left: 5%;
+}
+#cloud2 {
+    top:50%;
+    left: 25%;
+}
+#cloud3 {
+    top: 40%;
+    left: 50%;
 }
