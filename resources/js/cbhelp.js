@@ -1,7 +1,17 @@
   var convpatterns = new Array (
   new Array ("(.*) (Hilfe|helfen)(.*)\.","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter team_5@outlook.de."),
   new Array ("(Hilfe|helfen)","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter: team_5@outlook.de."),
-  new Array (".*(Einschalten|Ausschalten).*","Klicken Sie dazu auf das blaue Symbol in der linken unteren Ecke."),
+  new Array (".*(Eingabe|Bedienung).*","Ist das Mikrofon aktiv, können Sie einen Befehl einsprechen. Warten Sie während die Eingabe analysiert wird. Das kann einige Sekunden dauern. Neben dem Mikrofon wird Ihnen angezeigt, in welchen Modus Sie sich befinden."),
+  new Array (".*(Text).*","Der Befehl hierfür lautet >Text<. Sie können den eigegebenen Text auch jederzeit manuell bearbeiten. Per Sprachbefehl ist dies leider nicht möglich. Desweiteren haben Sie die Möglichkeit bei der Eingabe eines Neuen Textes zu wählen, ob dieser fett, kursiv oder unterstrichen sein soll. Dazu erscheint ein Menü auf der linken Seite."),
+      new Array (".*Überschrift.*","Durch das Wort >Überschrift<, wecheln Sie in den Modus neue Überschrift hinzufügen."),
+      new Array (".*(Absatz|neue Zeile).*","Hierfür gibt es keinen Sprachbefehl. Es wird automatisch ein Absatz eingefügt, wenn Sie eine Überschrift oder einen normalen Text hinzufügen."),
+      new Array (".*(bearbeiten|editieren).*","Sie können den eigegebenen Text auch jederzeit manuell bearbeiten."),
+      new Array (".*(fett).*","Sie haben die Möglichkeit bei der Eingabe eines Neuen Textes zu wählen, ob dieser <b>fett</b> geschrieben werden soll. Dazu erscheint ein Menü auf der linken Seite. Wählen sie per Mausklick ><b>F</b>< aus."),
+      new Array (".*(kursiv).*","Sie haben die Möglichkeit bei der Eingabe eines Neuen Textes zu wählen, ob dieser <i>kursiv</i> geschrieben werden soll. Dazu erscheint ein Menü auf der linken Seite. Wählen sie per Mausklick ><i>K</i>< aus."),
+      new Array (".*(unterstrichen).*","Sie haben die Möglichkeit bei der Eingabe eines Neuen Textes zu wählen, ob dieser <u>unterstrichen</u> geschrieben werden soll. Dazu erscheint ein Menü auf der linken Seite. Wählen sie per Mausklick ><u>U</u>< aus."),
+  new Array (".*(Befehl|Code).*","Es ist möglich einen normalen Text, oder eine Überschrift zuschreiben. Durch den Befehl >Hilfe< werden Sie jederzeit zu mir weitergeleitet. Wollen Sie einen neuen Paragraphen schreiben, dann beenden Sie den aktuellen Befehl und geben den gewünschten Befehl ein."),
+  new Array (".*(Einschalten|Ausschalten).*","Klicken Sie dazu auf das blaue Symbol in der linken unteren Ecke. Zum Ausschalten drücken sie erneut auf den Button."),
+new Array (".*(Problem|funktioniert nicht|achten).*","<a id=blacklink href=https://cloud.google.com/speech/docs/best-practices>Schau mal hier...</a>"),
 new Array (".*hallo.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
       new Array (".*hi.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
       new Array (".*hey.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
@@ -41,9 +51,6 @@ new Array (".*heißt du.*","Mein Name ist Alice.","Alice","Alice, einen Nachname
   new Array ("(.*) (Deutsch|Sprache|Englisch)(.*)\.","Zur Zeit verstehe ich nur Deutsch.","Ich lerne momentan in der Abendschule Englisch."),
   new Array ("(.*) (alt|Alter|geboren)(.*)\.","Ich altere nicht.","Ich wurde im November 2016 geboren."),
   new Array ("(.*) (dumm|Idiot)(.*)\.","Das ist sehr unhöflich.","Du bist gemein.","Was würde deine Mutter dazu sagen?"),
-  new Array ("(.*) (Hilfe|helfen)(.*)\.","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter team_5@outlook.de."),
-  new Array ("(Hilfe|helfen)","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter: team_5@outlook.de."),
-  new Array ("(Hilfe|helfen)","Ich kann leider nicht alles wissen, aber schreibe uns doch eine EMail: team_5@outlook.de.","Manchmal bin ich einfach überfragt. Du erreichst uns unter: team_5@outlook.de."),
   new Array ("(.*?)[\?]","Hmm, ich bin mir nicht sicher..", "Das ist eine gute Frage...",  "Vieleicht findest du die Antwort im Internet...","Warum fragst du?","Wenn das wirklich wichtig ist schreib uns doch eine E-Mail."),
   new Array ("(.*)","Hast du irgenwelche Hobbies?", "Ich verstehe,  erzähl mir mehr...", "Über was genau reden wir?", "Kannst du mir das nocheinmal erklären..", "Um, ich habe das Gefühl die Konversation läuft nicht richtig..",  "Oh wirklich?",  "Hmm, ist das so..", "Bitte erzähl mir mehr.","Können wir über etwas anderes reden... Erzähl mir was über deine Familie.","Hast du vielleicht eine Frage zu der App","I verstehe.","Sehr interessant.","Was denkst du darüber?","Womit verbringst du die meiste Zeit?","Kommst du mit der Bedienung der App klar?","Wie findest du unsere App?")
     
@@ -106,21 +113,6 @@ function btn4() {
 */
 //-------
 function conversationpatterns() {
-	var Eingabe = uinput;
-	Eingabe = Eingabe.toUpperCase();    
-	if((Eingabe.indexOf('BEFEHL') != -1) || (Eingabe.indexOf('CODE') != -1) || (Eingabe.indexOf('BEDIENUNG') != -1) || (Eingabe.indexOf('TEXT') != -1) || (Eingabe.indexOf('ABSATZ') != -1) || (Eingabe.indexOf('NEUE ZEILE') != -1) || (Eingabe.indexOf('ÜBERSCHRIFT') != -1) || (Eingabe.indexOf('FETT') != -1) || (Eingabe.indexOf('UNTERSTRICH') != -1) || (Eingabe.indexOf('KURSIV') != -1)) {
-        document.getElementById("hilfe_inhalt2").style.display = "none";
-        document.getElementById("hilfe_inhalt3").style.display = "none";
-		document.getElementById("hilfe_inhalt1").style.display = "block";
-	} else if((Eingabe.indexOf('FUNKTIONIERT') != -1) || (Eingabe.indexOf('PROBLEM') != -1) || (Eingabe.indexOf('ACHTEN') != -1)) {
-		//akt Chrome Version Java aktivieren
-        document.getElementById("hilfe_inhalt1").style.display = "none";
-        document.getElementById("hilfe_inhalt3").style.display = "none";
-        document.getElementById("hilfe_inhalt2").style.display = "block";
-	} else {
-        document.getElementById("hilfe_inhalt1").style.display = "none";
-        document.getElementById("hilfe_inhalt2").style.display = "none";
-        document.getElementById("hilfe_inhalt3").style.display = "block";
    for (i=0; i < convpatterns.length; i++) {
     re = new RegExp (convpatterns[i][0], "i");
     if (re.test(uinput)) {
@@ -132,7 +124,6 @@ function conversationpatterns() {
       break;
 	}
   }
- }
 }
 
 //-------
