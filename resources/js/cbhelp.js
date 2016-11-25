@@ -11,7 +11,7 @@
       new Array (".*(unterstrichen).*","Sie haben die Möglichkeit bei der Eingabe eines Neuen Textes zu wählen, ob dieser <u>unterstrichen</u> geschrieben werden soll. Dazu erscheint ein Menü auf der linken Seite. Wählen sie per Mausklick ><u>U</u>< aus."),
   new Array (".*(Befehl|Code).*","Es ist möglich einen normalen Text, oder eine Überschrift zuschreiben. Durch den Befehl >Hilfe< werden Sie jederzeit zu mir weitergeleitet. Wollen Sie einen neuen Paragraphen schreiben, dann beenden Sie den aktuellen Befehl und geben den gewünschten Befehl ein."),
   new Array (".*(Einschalten|Ausschalten).*","Klicken Sie dazu auf das blaue Symbol in der linken unteren Ecke. Zum Ausschalten drücken sie erneut auf den Button."),
-new Array (".*(Problem|funktioniert nicht|achten).*","<a id=blacklink href=https://cloud.google.com/speech/docs/best-practices>Schau mal hier...</a>"),
+new Array (".*(Problem|funktioniert|achten).*","<a id=blacklink href=https://cloud.google.com/speech/docs/best-practices>Schau mal hier...</a>"),
 new Array (".*hallo.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
       new Array (".*hi.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
       new Array (".*hey.*","Gruß","Hey","Howdy","Hi","Guten Tag","Hallo"),
@@ -37,7 +37,7 @@ new Array (".*heißt du.*","Mein Name ist Alice.","Alice","Alice, einen Nachname
   new Array ("Kann ich (.*?)[\?]","Vielleicht willst du das ja garnicht.","Ich weiß nicht ob du das kannst.","Wenn du das könntest, würdest du es tun?"),
   new Array ("Du bist (.*)\.","Warum denkst du, dass ich $1 bin?","Ist das so offensichtlich?","Vieleicht trifft das eher auf dich zu?","Redest du über mich oder über dich?"),
   new Array ("Ich habe (.*)\.","Warum erzählst du mir, dass du $1 hast?","Hast du wirklich $1?"),
-  new Array ("I would (.*)\.","Could you explain why you would $1?","Why would you $1?","Who else knows that you would $1?"),
+  new Array ("Ich würde (.*)\.","Kannst du mir erklären, warum du $1 würdest?","Warum würdest du $1?"),
   new Array ("Mein (.*)\.", "Ist es wirklich deine?"),
   new Array ("^Du (.*)\.", "Wir sollten über dich reden, nicht über mich.","Warum sagst du das über mich?"),
   new Array ("Warum (.*)\?", "Erzählst du mir den Grund, warum du das denkst?","Warum denkst du das?" ),
@@ -81,9 +81,23 @@ soutput = ""
      conversationpatterns();
      updatescreen();
 }
-/*
+
 function btn1() {
     uinput = document.getElementById('btn1').innerHTML;
+	var newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_input";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
+     newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_output";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
     conversationpatterns();
     updatescreen();
     return 0;
@@ -91,6 +105,20 @@ function btn1() {
 
 function btn2() {
     uinput = document.getElementById('btn2').innerHTML;
+	var newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_input";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
+     newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_output";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
     conversationpatterns();
     updatescreen();
     return 0;
@@ -98,19 +126,25 @@ function btn2() {
 
 function btn3() {
     uinput = document.getElementById('btn3').innerHTML;
+	var newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_input";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
+     newh = document.createElement("p");
+     newh.id = m;
+     newh.className = "hilfe_output";
+                          document.getElementById("hilfe_Ausgabefeld").innerHTML+="<br/>";
+                          vorhandenesObjekt = document.getElementById('hilfe_Ausgabefeld');
+                          vorhandenesObjekt.appendChild(newh);
+     m++;
     conversationpatterns();
     updatescreen();
     return 0;
 }
 
-function btn4() {
-    uinput = document.getElementById('btn4').innerHTML;
-    conversationpatterns();
-    updatescreen();
-    return 0;
-}
-
-*/
 //-------
 function conversationpatterns() {
    for (i=0; i < convpatterns.length; i++) {
