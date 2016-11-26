@@ -17,6 +17,14 @@
 
         $('a[href^="#"]').click(function () {
 
+			$.each($("#top-menu a"), function(key, value){
+				if($(value).hasClass( "current" )){
+					$(value).removeClass( "current" );
+				}
+			});
+		
+			$(this).addClass("current");
+		
             elementClick = $(this).attr("href");
 
             destination = $(elementClick).offset().top - 49;
