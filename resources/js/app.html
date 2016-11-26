@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <!-- import stylesheets -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
+        <link href="resources/css/common.css" rel="stylesheet" type="text/css">
+        <link href="app.css" rel="stylesheet" type="text/css">
+        <!-- necessary? -->
+        <!-- import google webspeech -->
+        <script src="resources/js/speechkitt.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+		<script src="resources/js/FileSaver.js"></script> 
+		<script src="resources/js/jquery.wordexport.js"></script> 
+
+        <!-- link favicon -->
+        <link href="resources/images/icon_transparent.png" rel="shortcut icon">
+
+        <!-- page title -->
+        <title>App</title>
+        
+    </head>
+
+    <body>
+
+        <div style="clear: both"></div>
+
+        <!-- Top Menu -->
+        <div id="top-menu-container">
+            <div id="top-menu">
+                <a href="check.html" class="current">App</a>
+                <a href="./">Startseite</a>
+                <a href="./#projekt">Projekt</a>
+                <a href="./#team">Team</a>
+                <a href="hilfe.html">Hilfe</a>
+                <a href="impressum.html">Impressum</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="textmenue">
+                <button id="btn1" class="btn">B</button>
+                <button id="btn2" class="btn">K</button>
+                <button id="btn3" class="btn">U</button>
+            </div>
+            <div contenteditable = "true" id="app">
+                
+            </div>
+        </div>
+
+		<!-- document footer -->
+        <footer>
+            <a href="https://github.com/HfTL-Team5/"><img src="resources/images/github.svg" width="50" height="50"></a>
+            <a href="http://www.hft-leipzig.de/"><p id="text-footer">Copyright © 2016 HfTL. All rights reserved.</p></a>
+        </footer>
+
+         <script>
+          // Test browser support
+          window.SpeechRecognition = window.SpeechRecognition       ||
+                                     window.webkitSpeechRecognition ||
+                                     null;
+             //Browser unterstuetzt  WSA nicht
+          if (window.SpeechRecognition === null) {
+            window.location = "unsupported_browser.html";
+          } else {              //Browser unterstuetzt WSA
+            var recognizer = new window.SpeechRecognition();
+            recognizer.lang = "de";
+                  
+            //-----------------------------------------------------------------------------------------------------------------
+          
+              // Tell KITT the command to use to start listening
+              SpeechKITT.setStartCommand(function() {recognizer.start()});
+
+              // Tell KITT the command to use to abort listening
+              SpeechKITT.setAbortCommand(function() {recognizer.abort()});
+
+              // Register KITT's recognition start event with the browser's Speech Recognition
+              recognizer.addEventListener('start', SpeechKITT.onStart);
+
+              // Register KITT's recognition end event with the browser's Speech Recognition
+              recognizer.addEventListener('end', SpeechKITT.onEnd);
+
+              // Define a stylesheet for KITT to use
+              SpeechKITT.setStylesheet('//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css');
+
+              // Render KITT's interface
+              SpeechKITT.vroom(); // SpeechKITT.render() does the same thing, but isn't as much fun!
+          
+            //-----------------------------------------------------------------------------------------------------------------
+          
+            document.getElementById("skitt-toggle-button").onclick = function() {toggle()};
+        
+            //var transcription = document.getElementById('transcription');   //Ausgabe
+            var transcription;
+            var Eingabe;
+            var start_timestamp;
+            var i = 0;
+          
+        function toggle() {
+            var rec = document.getElementById('skitt-listening-text__instructions').innerHTML;
+            if (rec == "Wie lautet dein Befehl?") {    //ist AN
+                transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
+                //recognizer.onaudiostart = function(event){
+                    //alert("speech start");
+                //}
+                recognizer.onend = function(event) {
+                    //MIC ist aus
+                    document.getElementById("textmenue").style.display = "none";
+                    var Eingabe = document.getElementById('skitt-listening-text__instructions').innerHTML;  //Befehl holen
+                    Eingabe = Eingabe.toUpperCase();                                                    //Grossbuchstaben
+                    if (Eingabe.indexOf('TEXT') != -1)    //String enthaelt Befehl
+      		        {
+					  recognizer.continuous = true;
+                      var newp = document.createElement("p");
+                      newp.id = i;
+                      newp.className = "textline";
+                      if (i == 0) {
+                          document.getElementById('app').appendChild(newp);
+                          document.getElementById(i).style.paddingTop = "50px";
+                      } else {
+                          //document.getElementById("app").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('app');
+                          vorhandenesObjekt.appendChild(newp);
+                      }
+                      transcription = document.getElementById(i);   //Ausgabefeld
+                      i++;
+                      document.getElementById("skitt-listening-text__instructions").textContent="Texteingabe. Klicke zum Abbrechen";
+                      document.getElementById("textmenue").style.display = "inline";
+                      recognizer.start();
+      		        }
+                    else if (Eingabe.indexOf('HILFE') != -1)    //String enthaelt Befehl
+      		        {
+            		  window.open("hilfe.html","neu","toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=300,height=300");
+      		        }
+                    else if (Eingabe.indexOf('ÜBERSCHRIFT') != -1)    //String enthaelt Befehl
+      		        {
+					  recognizer.continuous = true;
+            		  var newh = document.createElement("h1");
+                      newh.id = i;
+                      //document.getElementById(i).contentEditable='true';
+                      newh.className = "headline";
+                      if (i == 0) {
+                          document.getElementById('app').appendChild(newh);
+                          document.getElementById(i).style.paddingTop = "50px";
+                      } else {
+                          //document.getElementById("app").innerHTML+="<br/>";
+                          var vorhandenesObjekt = document.getElementById('app');
+                          vorhandenesObjekt.appendChild(newh);
+                      }
+                      transcription = document.getElementById(i);   //Ausgabefeld
+                      i++;
+                      document.getElementById("skitt-listening-text__instructions").textContent="Texteingabe. Klicke zum Abbrechen";
+                      document.getElementById("textmenue").style.display = "inline";
+                      recognizer.start();
+      		        }
+					else if (Eingabe.indexOf('DOWNLOAD') != -1)    //String enthaelt Befehl
+      		        {
+						$("#app").wordExport();
+      		        }
+                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) )) //String ist unverstaendlich
+                    {
+                        document.getElementById("skitt-listening-text__instructions").textContent="Ich glaube ich habe das nicht genau verstanden!";
+      		        }
+                }
+            } else {    //ist AUS
+                transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
+            }
+        }
+
+            // Recogniser doesn't stop listening even if the user pauses
+            recognizer.continuous = false;
+
+            // Start recognising
+            recognizer.onresult = function (event) {
+                var final = "";
+                var interim = "";
+				recognizer.continuous = false;
+                for (var i = 0; i < event.results.length; ++i) {
+                    if (event.results[i].final) {
+                        final += event.results[i][0].transcript;
+                    } else {
+                        interim += event.results[i][0].transcript;
+                    }
+                }
+                transcription.textContent = final;
+                transcription.textContent = interim;
+            };
+              
+            recognizer.onerror = function(event) {
+                if (event.error == 'no-speech') {
+                    alert("Oh, ich habe nichts verstanden...");
+                }
+                if (event.error == 'audio-capture') {
+                    alert("Oh, ich konnte kein Mikrofon finden. Schau bitte mal nach, ob es richtig installiert ist...");
+                }
+                if (event.error == 'not-allowed') {
+                  if (event.timeStamp - start_timestamp < 100) {
+                      alert("Oh, das Mikrofon wurde blockiert. Geh bitte auf folgende Seite: chrome://settings/contentExceptions#media-stream");
+                  } else {
+                        alert("Oh, die Benutzung des Mikrofons wurde verweigert...");
+                  }
+                }
+            };
+              
+        document.getElementById('btn1').addEventListener('click', function() {bold();});
+        document.getElementById('btn2').addEventListener('click', function() {italic();});
+        document.getElementById('btn3').addEventListener('click', function() {underline();});
+        var b1 = "false";
+        var b2 = "false";
+        var b3 = "false";
+        
+        function bold() {
+            if(b1 == "false") {
+                document.getElementById('btn1').style.backgroundColor = "#7db3d4";
+                b1 = "true";
+                document.getElementById(i-1).style.fontWeight = "bold";
+            } else {
+                document.getElementById('btn1').style.backgroundColor = "#2980B9";
+                document.getElementById(i-1).style.fontWeight = "normal";
+                b1 = "false";
+            }
+        }
+        
+        function italic() {
+            if(b2 == "false") {
+                document.getElementById('btn2').style.backgroundColor = "#7db3d4";
+                b2 = "true";
+                document.getElementById(i-1).style.fontStyle = "italic";
+            } else {
+                document.getElementById('btn2').style.backgroundColor = "#2980B9";
+                document.getElementById(i-1).style.fontStyle = "normal";
+                b2 = "false";
+            }
+        }
+          
+        function underline() {
+            if(b3 == "false") {
+                document.getElementById('btn3').style.backgroundColor = "#7db3d4";
+                b3 = "true";
+                document.getElementById(i-1).style.textDecoration = "underline";
+            } else {
+                document.getElementById('btn3').style.backgroundColor = "#2980B9";
+                document.getElementById(i-1).style.textDecoration = "none";
+                b3 = "false";
+            }
+        }
+
+            
+          }
+
+         </script>
+
+    </body>
+</html>
