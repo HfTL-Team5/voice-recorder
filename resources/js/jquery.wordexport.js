@@ -1,7 +1,7 @@
 if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
     (function($) {
         $.fn.wordExport = function(fileName) {
-            fileName = typeof fileName !== 'undefined' ? fileName : "jQuery-Word-Export";
+            fileName = typeof fileName !== 'undefined' ? fileName : "VoiceRecorder";
             var static = {
                 mhtml: {
                     top: "Mime-Version: 1.0\nContent-Base: " + location.href + "\nContent-Type: Multipart/related; boundary=\"NEXT.ITEM-BOUNDARY\";type=\"text/html\"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset=\"utf-8\"\nContent-Location: " + location.href + "\n\n<!DOCTYPE html>\n<html>\n_html_</html>",
@@ -30,8 +30,8 @@ if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
                 var w = Math.min(img[i].width, options.maxWidth);
                 var h = img[i].height * (w / img[i].width);
                 // Create canvas for converting image to data URL
-                $('<canvas>').attr("id", "jQuery-Word-export_img_" + i).width(w).height(h).insertAfter(img[i]);
-                var canvas = document.getElementById("jQuery-Word-export_img_" + i);
+                $('<canvas>').attr("id", "VoiceRecorder_img_" + i).width(w).height(h).insertAfter(img[i]);
+                var canvas = document.getElementById("VoiceRecorder_img_" + i);
                 canvas.width = w;
                 canvas.height = h;
                 // Draw image to canvas
