@@ -10,6 +10,9 @@
         <!-- necessary? -->
         <!-- import google webspeech -->
         <script src="resources/js/speechkitt.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+		<script src="resources/js/FileSaver.js"></script> 
+		<script src="resources/js/jquery.wordexport.js"></script> 
 
         <!-- link favicon -->
         <link href="resources/images/icon_transparent.png" rel="shortcut icon">
@@ -53,7 +56,6 @@
         </footer>
 
          <script>
-
           // Test browser support
           window.SpeechRecognition = window.SpeechRecognition       ||
                                      window.webkitSpeechRecognition ||
@@ -109,6 +111,7 @@
                     Eingabe = Eingabe.toUpperCase();                                                    //Grossbuchstaben
                     if (Eingabe.indexOf('TEXT') != -1)    //String enthaelt Befehl
       		        {
+					  recognizer.continuous = true;
                       var newp = document.createElement("p");
                       newp.id = i;
                       newp.className = "textline";
@@ -132,6 +135,7 @@
       		        }
                     else if (Eingabe.indexOf('ÜBERSCHRIFT') != -1)    //String enthaelt Befehl
       		        {
+					  recognizer.continuous = true;
             		  var newh = document.createElement("p");
                       newh.id = i;
                       //document.getElementById(i).contentEditable='true';
@@ -150,7 +154,11 @@
                       document.getElementById("textmenue").style.display = "inline";
                       recognizer.start();
       		        }
-                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) )) //String ist unverstaendlich
+					else if (Eingabe.indexOf('DOWNLOAD') != -1)    //String enthaelt Befehl
+      		        {
+						$("#app").wordExport();
+      		        }
+                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) )) //String ist unverstaendlich
                     {
                         document.getElementById("skitt-listening-text__instructions").textContent="Ich glaube ich habe das nicht genau verstanden!";
       		        }
@@ -161,12 +169,13 @@
         }
 
             // Recogniser doesn't stop listening even if the user pauses
-            recognizer.continuous = true;
+            recognizer.continuous = false;
 
             // Start recognising
             recognizer.onresult = function (event) {
                 var final = "";
                 var interim = "";
+				recognizer.continuous = false;
                 for (var i = 0; i < event.results.length; ++i) {
                     if (event.results[i].final) {
                         final += event.results[i][0].transcript;
