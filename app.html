@@ -119,7 +119,7 @@
                           document.getElementById('app').appendChild(newp);
                           document.getElementById(i).style.paddingTop = "50px";
                       } else {
-                          document.getElementById("app").innerHTML+="<br/>";
+                          //document.getElementById("app").innerHTML+="<br/>";
                           var vorhandenesObjekt = document.getElementById('app');
                           vorhandenesObjekt.appendChild(newp);
                       }
@@ -136,7 +136,7 @@
                     else if (Eingabe.indexOf('ÜBERSCHRIFT') != -1)    //String enthaelt Befehl
       		        {
 					  recognizer.continuous = true;
-            		  var newh = document.createElement("p");
+            		  var newh = document.createElement("h1");
                       newh.id = i;
                       //document.getElementById(i).contentEditable='true';
                       newh.className = "headline";
@@ -144,7 +144,7 @@
                           document.getElementById('app').appendChild(newh);
                           document.getElementById(i).style.paddingTop = "50px";
                       } else {
-                          document.getElementById("app").innerHTML+="<br/>";
+                          //document.getElementById("app").innerHTML+="<br/>";
                           var vorhandenesObjekt = document.getElementById('app');
                           vorhandenesObjekt.appendChild(newh);
                       }
@@ -158,7 +158,7 @@
       		        {
 						$("#app").wordExport();
       		        }
-                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) )) //String ist unverstaendlich
+                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) )) //String ist unverstaendlich
                     {
                         document.getElementById("skitt-listening-text__instructions").textContent="Ich glaube ich habe das nicht genau verstanden!";
       		        }
