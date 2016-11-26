@@ -14,12 +14,17 @@
                 $("#header").removeClass("default").fadeIn('fast');
 
         });
+		
+		var id = window.location.href.split("#");
+		id = id[id.length - 1];
+		
+		$('[href="#'+ id +'"]').addClass("current");
 
         $('a[href^="#"]').click(function () {
 
 			$.each($("#top-menu a"), function(key, value){
-				if($(value).hasClass( "current" )){
-					$(value).removeClass( "current" );
+				if($(value).hasClass("current")){
+					$(value).removeClass("current");
 				}
 			});
 		
