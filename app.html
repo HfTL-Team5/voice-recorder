@@ -112,6 +112,7 @@
                     if (Eingabe.indexOf('TEXT') != -1)    //String enthaelt Befehl
       		        {
 					  recognizer.continuous = true;
+					  recognizer.interimResults = true;
                       var newp = document.createElement("p");
                       newp.id = i;
                       newp.className = "textline";
@@ -136,6 +137,7 @@
                     else if (Eingabe.indexOf('ÜBERSCHRIFT') != -1)    //String enthaelt Befehl
       		        {
 					  recognizer.continuous = true;
+					  recognizer.interimResults = true;
             		  var newh = document.createElement("h1");
                       newh.id = i;
                       //document.getElementById(i).contentEditable='true';
@@ -154,11 +156,15 @@
                       document.getElementById("textmenue").style.display = "inline";
                       recognizer.start();
       		        }
+					else if ((Eingabe.indexOf('NEUE') != -1) || (Eingabe.indexOf('ABSATZ') != -1) || (Eingabe.indexOf('ENTER') != -1))    //String enthaelt Befehl
+      		        {
+            		  	document.getElementById("app").innerHTML+="<br/>";
+      		        }
 					else if (Eingabe.indexOf('DOWNLOAD') != -1)    //String enthaelt Befehl
       		        {
 						$("#app").wordExport();
       		        }
-                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) ) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) )) //String ist unverstaendlich
+                    else if (( (Eingabe.indexOf('TEXT') == -1) && (Eingabe.indexOf('HILFE') == -1) && (Eingabe.indexOf('ÜBERSCHRIFT') == -1)&& (Eingabe.indexOf('DOWNLOAD') == -1)&& (Eingabe.indexOf('NEUE') == -1) && (Eingabe.indexOf('ABSATZ') == -1) && (Eingabe.indexOf('ENTER') == -1)) || ( (Eingabe.indexOf('TEXT') != -1) && (Eingabe.indexOf('HILFE') != -1) && (Eingabe.indexOf('DOWNLOAD') != -1) && (Eingabe.indexOf('ÜBERSCHRIFT') != -1) && (Eingabe.indexOf('NEUE') != -1) && (Eingabe.indexOf('ABSATZ') != -1) && (Eingabe.indexOf('ENTER') != -1))) //String ist unverstaendlich
                     {
                         document.getElementById("skitt-listening-text__instructions").textContent="Ich glaube ich habe das nicht genau verstanden!";
       		        }
@@ -170,12 +176,14 @@
 
             // Recogniser doesn't stop listening even if the user pauses
             recognizer.continuous = false;
+			recognizer.interimResults = false;
 
             // Start recognising
             recognizer.onresult = function (event) {
                 var final = "";
                 var interim = "";
 				recognizer.continuous = false;
+				recognizer.interimResults = false;
                 for (var i = 0; i < event.results.length; ++i) {
                     if (event.results[i].final) {
                         final += event.results[i][0].transcript;
