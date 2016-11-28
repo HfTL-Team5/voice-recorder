@@ -365,23 +365,6 @@ a {
 	margin: 21px 80px 0px 80px;
     border-radius: 100px;
 }
-.btn {
-    background-color: Transparent;
-	font-family: Arial;
-	font-size: 20px;
-	color: #363636;
-	font-weight: bold;
-	text-decoration: none;
-	border: 0;
-	cursor: pointer;
-}
-.btn:hover {
-  color: #525252;
-  text-decoration: none;
-}
-.btn:focus {
-outline: none;
-}
 
 /* ----- normalised ----- */
 
@@ -486,6 +469,23 @@ article.page.gray { background-color: #eceae9; color: #000; }
 	border: 0;
 	cursor: pointer;
     max-width: 15%;
+	
+	background-color: Transparent;
+	font-family: Arial;
+	font-size: 20px;
+	color: #363636;
+	font-weight: bold;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+	text-align: center;
+}
+.cloud:hover {
+  color: #525252;
+  text-decoration: none;
+}
+.cloud:focus {
+outline: none;
 }
 #cloud1 {
     top: 30%;
