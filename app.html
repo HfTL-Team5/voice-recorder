@@ -45,7 +45,7 @@
                 <button id="btn3" class="btn">U</button>
             </div>
             <div contenteditable = "true" id="app">
-                
+                <p class="textline" id="0">Hallo</p>
             </div>
         </div>
 
@@ -123,6 +123,10 @@
                           //document.getElementById("app").innerHTML+="<br/>";
                           var vorhandenesObjekt = document.getElementById('app');
                           vorhandenesObjekt.appendChild(newp);
+						  if (i > 26) {
+							  var h = vorhandenesObjekt.style.height;
+							  //vorhandenesObjekt.style.height = h + 4;
+						  }
                       }
                       transcription = document.getElementById(i);   //Ausgabefeld
                       i++;
