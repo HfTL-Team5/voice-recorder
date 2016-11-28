@@ -87,7 +87,7 @@ soutput = ""
 }
 
 function btn1() {
-    uinput = document.getElementById('btn1').innerHTML;
+    uinput = document.getElementById('cloud1').innerHTML;
 	var newh = document.createElement("p");
      newh.id = m;
      newh.className = "hilfe_input";
@@ -108,7 +108,7 @@ function btn1() {
 }
 
 function btn2() {
-    uinput = document.getElementById('btn2').innerHTML;
+    uinput = document.getElementById('cloud2').innerHTML;
 	var newh = document.createElement("p");
      newh.id = m;
      newh.className = "hilfe_input";
@@ -129,7 +129,7 @@ function btn2() {
 }
 
 function btn3() {
-    uinput = document.getElementById('btn3').innerHTML;
+    uinput = document.getElementById('cloud3').innerHTML;
 	var newh = document.createElement("p");
      newh.id = m;
      newh.className = "hilfe_input";
