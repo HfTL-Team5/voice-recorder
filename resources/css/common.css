@@ -136,7 +136,7 @@ a {
 
 #app {
     background: #ECEAE9;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 40px;
 }
 
