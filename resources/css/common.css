@@ -488,6 +488,13 @@ article.page.gray { background-color: #eceae9; color: #000; }
 
 .project-member .name
 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.project-member .role
+{
+    margin-top: 10px;
     font-weight: bold;
 }
 
