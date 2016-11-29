@@ -86,6 +86,17 @@
                             <p class="hilfe_output" id="0">Schreib mir etwas...</p>
                         </div>
 			  
+			    <script>
+				   $("#hilfe_Ausgabefeld").hover(function(){
+				 $("body").css("overflow","hidden")
+				}, function(){
+				 $("body").css("overflow","auto");
+				}); 
+				</script>
+			    
+			    
+			    
+			    
                         <input type="text" id="hilfe_input_feld" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" placeholder="Frag mich etwas...">
                     </div>
                 </div>
