@@ -453,7 +453,40 @@ article.page.gray { background-color: #eceae9; color: #000; }
 
 /* --- semantics --- */
 
+#project-member-list
+{
+    margin: auto;
+    width: 75vw;
+}
+
 .project-member
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.project-member:nth-child(odd) .picture { order: 1; }
+.project-member:nth-child(odd) .data { order: 2; }
+
+.project-member:nth-child(even) .picture { order: -1; }
+.project-member:nth-child(even) .data
+{
+    order: -2;
+    text-align: right;
+}
+
+.project-member .picture
+{
+    flex: 0 1 auto;
+}
+
+.project-member .data
+{
+    flex: 0 1 70%;
+    padding: 10px;
+}
+
+.project-member .name
 {
     font-weight: bold;
 }
