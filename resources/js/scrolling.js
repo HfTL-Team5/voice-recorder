@@ -1,51 +1,61 @@
-(function () {
+// Functions
+ 
+ $(document).ready(function () {
 
-    // Functions
+	var id = window.location.href.split("#");
+	
+	if(id.indexOf("#") != -1){
+		$('[data-scrolling="' + id + '"]').addClass("current");
+	}
+	
+	// Cache selectors
+	var lastId,
+		topMenu = $("#top-menu"),
+		topMenuHeight = topMenu.outerHeight()+50,
+		// All list items
+		menuItems = topMenu.find("a"),
+		// Anchors corresponding to menu items
+		scrollItems = menuItems.map(function(){
+			var item = $($(this).attr("href"));
+			if (item.length) { return item; }
+		});
 
-    $(document).ready(function () {
-
-        $("#header").removeClass("default");
-
-        $(window).scroll(function () {
-
-            if ($(this).scrollTop() > 20)
-                $("#header").addClass("default").fadeIn('fast');
-            else
-                $("#header").removeClass("default").fadeIn('fast');
-
-        });
+	// Bind click handler to menu items
+	// so we can get a fancy scroll animation
+	menuItems.click(function(e){
+		var href = $(this).attr("href"),
+			offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+55;
+		$('html, body').stop().animate({ 
+			scrollTop: offsetTop
+		}, 300);
+		e.preventDefault();
 		
-		var id = window.location.href.split("#");
-		id = id[id.length - 1];
-		
-		$('[href="#'+ id +'"]').addClass("current");
+		history.pushState(undefined, undefined, href);
+	});
 
-        $('a[href^="#"]').click(function () {
+	// Bind to scroll
+	$(window).scroll(function(){
+	   // Get container scroll position
+	   var fromTop = $(this).scrollTop()+topMenuHeight;
+	   
+	   // Get id of current scroll item
+	   var cur = scrollItems.map(function(){
+		 if ($(this).offset().top < fromTop)
+		   return this;
+	   });
+	   // Get the id of the current element
+	   cur = cur[cur.length-1];
+	   var id = cur && cur.length ? cur[0].id : "";
+	   
+	   if (lastId !== id) {
+		   lastId = id;
+		   // Set/remove active class
+		   menuItems
+			 .filter("[href]").removeClass("current")
+			 .end().filter("[href='#"+id+"']").addClass("current");
+	   }                   
+	});
 
-			$.each($("#top-menu a"), function(key, value){
-				if($(value).hasClass("current")){
-					$(value).removeClass("current");
-				}
-			});
-		
-			$(this).addClass("current");
-		
-            elementClick = $(this).attr("href");
+});
 
-            destination = $(elementClick).offset().top - 49;
 
-            if ($.browser.safari)
-                $('body').animate({ scrollTop: destination }, 1000);
-            else
-                $('html').animate({ scrollTop: destination }, 1000);
-
-            // Change hash
-            history.pushState(undefined, undefined, elementClick);
-
-            return false;
-
-        });
-
-    });
-
-})();
