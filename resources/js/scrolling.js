@@ -4,7 +4,7 @@
 
 	var id = window.location.href.split("#");
 	
-	if(id.indexOf("#") != -1){
+	if(id.indexOf("#") == -1){
 		$('#top-menu [href="#start"]').addClass("current");
 	}
 	
