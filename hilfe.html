@@ -8,6 +8,7 @@
 
         <!-- import javascript file -->
 	    <script type="text/javascript" src="resources/js/cbhelp.js"></script>
+	    <script type="text/javascript" src="resources/js/jquery.1.7.1.min.js"></script>
         
         <!-- link favicon -->
         <link href="resources/images/icon_transparent.png" rel="shortcut icon">
@@ -86,12 +87,17 @@
                             <p class="hilfe_output" id="0">Schreib mir etwas...</p>
                         </div>
 			  
+			    
+			    
 			    <script>
-				   $("#hilfe_Ausgabefeld").hover(function(){
+				    jQuery(document).ready(function () { 
+				     $("#hilfe_Ausgabefeld").hover(function(){
 				 $("body").css("overflow","hidden")
 				}, function(){
 				 $("body").css("overflow","auto");
 				}); 
+				    });
+				  
 				</script>
 			    
 			    
