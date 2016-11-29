@@ -5,8 +5,11 @@
 	var id = window.location.href.split("#");
 	
 	if(id.indexOf("#") != -1){
-		$('[data-scrolling="' + id + '"]').addClass("current");
+		id = id[id.length - 1]
+	}else{
+		id = "start";
 	}
+	$('[data-scrolling="' + id + '"]').addClass("current");
 	
 	// Cache selectors
 	var lastId,
@@ -59,3 +62,26 @@
 });
 
 
+$("#hilfe_Ausgabefeld").hover(function(e){
+	$("body").css("overflow","hidden")
+}, function(){
+	$("body").css("overflow","auto");
+});
+
+$("#hilfe_Ausgabefeld").on("mouseout", function(e){
+	
+});
+
+document.getElementById("hilfe_Ausgabefeld").addEventListener("mouseover", mouseOver);
+       document.getElementById("hilfe_Ausgabefeld").addEventListener("mouseout", mouseOut);
+
+       function mouseOver() {
+        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+       }
+
+       function mouseOut() {
+        document.body.style.overflow = "auto";
+       }
+	   
+	   
