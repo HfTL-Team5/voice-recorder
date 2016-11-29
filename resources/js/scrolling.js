@@ -9,7 +9,7 @@
 	}else{
 		id = "start";
 	}
-	$('[data-scrolling="' + id + '"]').addClass("current");
+	$('#top-menu [href='+ id +']').addClass("current");
 	
 	// Cache selectors
 	var lastId,
