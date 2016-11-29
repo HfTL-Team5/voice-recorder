@@ -5,11 +5,9 @@
 	var id = window.location.href.split("#");
 	
 	if(id.indexOf("#") != -1){
-		id = id[id.length - 1]
-	}else{
-		id = "start";
+		$('#top-menu [href=start]').addClass("current");
 	}
-	$('#top-menu [href='+ id +']').addClass("current");
+	
 	
 	// Cache selectors
 	var lastId,
