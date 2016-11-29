@@ -59,27 +59,5 @@
 
 });
 
-
-$("#hilfe_Ausgabefeld").hover(function(e){
-	$("body").css("overflow","hidden")
-}, function(){
-	$("body").css("overflow","auto");
-});
-
-$("#hilfe_Ausgabefeld").on("mouseout", function(e){
-	
-});
-
-document.getElementById("hilfe_Ausgabefeld").addEventListener("mouseover", mouseOver);
-       document.getElementById("hilfe_Ausgabefeld").addEventListener("mouseout", mouseOut);
-
-       function mouseOver() {
-        document.body.style.overflow = "hidden";
-        document.body.style.overflow = "hidden";
-       }
-
-       function mouseOut() {
-        document.body.style.overflow = "auto";
-       }
 	   
 	   
