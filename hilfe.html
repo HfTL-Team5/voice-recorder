@@ -85,6 +85,21 @@
                         <div id="hilfe_Ausgabefeld">
                             <p class="hilfe_output" id="0">Schreib mir etwas...</p>
                         </div>
+			    <script>
+			
+							document.getElementById("hilfe_Ausgabefeld").addEventListener("mouseover", mouseOver);
+							document.getElementById("hilfe_Ausgabefeld").addEventListener("mouseout", mouseOut);
+
+							function mouseOver() {
+								document.body.style.overflow = "hidden";
+								document.body.style.overflow = "hidden";
+							}
+
+							function mouseOut() {
+								document.body.style.overflow = "auto";
+							}
+ 
+			   </script>
                         <input type="text" id="hilfe_input_feld" onfocus="if(this.value == 'Frag mich etwas...') { this.value = ''; }" placeholder="Frag mich etwas...">
                     </div>
                 </div>
