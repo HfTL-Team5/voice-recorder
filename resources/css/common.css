@@ -27,7 +27,7 @@ a {
 }
 
 #content { 
-    margin-top: 50px;
+    margin: 0;
 }
 
 #content-button {
@@ -138,6 +138,7 @@ a {
     background: #ECEAE9;
     min-height: 100vh;
     margin-top: 40px;
+    display: none;
 }
 
 #projekt-foto{
@@ -373,6 +374,7 @@ a {
 footer
 {
     background: #454455;
+    color: #D7D7D7;
     font-size: 11px;
     height: 15vh;
     padding: 10px;
