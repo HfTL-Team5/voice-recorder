@@ -210,8 +210,13 @@
             var Eingabe;
             var start_timestamp;
             var i = 0;
+	    var start = 1;
           
         function toggle() {
+	    if (start == 1) {
+	    	display();
+		start = 0;
+	    }
             var rec = document.getElementById('skitt-listening-text__instructions').innerHTML;
             if (rec == "Wie lautet dein Befehl?") {    //ist AN
                 transcription = document.getElementById('skitt-listening-text__instructions');   //Ausgabe
