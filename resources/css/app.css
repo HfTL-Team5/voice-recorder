@@ -1,0 +1,140 @@
+#transcription {
+	
+}
+
+.textline {
+    margin-left: 500px;
+    margin-right: 500px;
+    font-family: Arial;
+	color: #414141;
+	font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.headline {
+    margin-left: 500px;
+    margin-right: 500px;
+    font-family: Arial;
+	color: #414141;
+	font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#textmenue {
+    position: fixed;
+    bottom: 100px;
+	margin: 20px;
+	width: 10vh;
+	height: 20vh;
+	background: #2980B9;
+	display: none;
+	z-index: 0;
+	text-align: center;
+    border-radius: 50px;
+}
+
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 2px 1px 4px #000000;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #2980B9;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-top: 0px;
+}
+
+.btn:hover {
+  background: #7db3d4;
+  text-decoration: none;
+}
+
+#btn1 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+#btn2 {
+    font-style: italic;
+}
+#btn3 {
+    text-decoration: underline;
+}
+
+body {
+            
+    margin: 0;
+}
+        
+#navigation {
+    background: #D0D0D0;
+    opacity: 0.7;
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+
+    box-shadow: inset 0 0 200px rgba(0,0,0,0.8);
+
+    font-family: Tahoma;
+    font-size: 55px;
+
+    text-align: center;   
+
+    list-style-type: none;
+}  
+
+#section-left {
+    display: inline-table;
+    width: 20%;
+    font-size: 55px;
+}
+
+#section-right {
+    display: inline-table;
+    width: 75%;
+    font-size: 45px;
+}
+
+#text-left {
+    background-color: #565656;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(255,255,255,0.4);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+     font-size: 45px;
+
+}
+
+#sect {
+    margin-top: 65vh;
+    position: absolute;
+}
+
+ #text-right {
+    position: relative;
+    background-color: #565656;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(255,255,255,0.4);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    margin: auto;
+
+}
+
+#block {
+    width: 0;
+    height: 0;
+    border: 40px solid transparent; 
+    border-top-color: #565656;  
+    opacity: 0.4; 
+    margin: auto;
+    margin-right: 10vw;
+}
