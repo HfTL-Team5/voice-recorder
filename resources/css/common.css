@@ -502,7 +502,7 @@ article.page.gray { background-color: #eceae9; color: #000; }
 
 .cloud {
     position: absolute;
-    background-image: url("../images/cloud.png");
+    background-image: url("../images/cloud2.png");
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 100% 100%, cover;
@@ -515,7 +515,7 @@ article.page.gray { background-color: #eceae9; color: #000; }
 	background-color: Transparent;
 	font-family: Arial;
 	font-size: 20px;
-	color: #363636;
+	color: rgba(0, 0, 0, 0.85);
 	font-weight: bold;
 	text-decoration: none;
 	border: 0;
@@ -523,7 +523,7 @@ article.page.gray { background-color: #eceae9; color: #000; }
 	text-align: center;
 }
 .cloud:hover {
-  color: #525252;
+  color: rgba(242, 242, 242, 0.67);
   text-decoration: none;
 }
 .cloud:focus {
