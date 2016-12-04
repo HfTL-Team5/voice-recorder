@@ -502,7 +502,7 @@ article.page.gray { background-color: #eceae9; color: #000; }
 
 .cloud {
     position: absolute;
-    background-image: url("../images/cloud2.png");
+    background-image: url("../images/cloud.png");
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 100% 100%, cover;
