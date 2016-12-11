@@ -28,7 +28,7 @@
 			offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+55;
 		$('html, body').stop().animate({ 
 			scrollTop: offsetTop
-		}, 300);
+		}, 500);
 		e.preventDefault();
 		
 		history.pushState(undefined, undefined, href);
