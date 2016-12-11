@@ -3,8 +3,6 @@
  $(document).ready(function () {
 
 	var id = window.location.href.split("#");
-	 
-	var currentHash;
 	
 	if(id.indexOf("#") == -1){
 		$('#top-menu [href="#start"]').addClass("current");
@@ -53,8 +51,7 @@
 	   if (lastId !== id) { 
 		lastId = id; 
 		// Set/remove active class 
-		window.location.hash = (lastId); 
-		currentHash = lastId; 
+		history.pushState(null, null, '#'+id);
 		menuItems 
 		.filter("[href]").removeClass("current") 
 		.end().filter("[href='#"+id+"']").addClass("current"); 
