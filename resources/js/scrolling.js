@@ -3,6 +3,8 @@
  $(document).ready(function () {
 
 	var id = window.location.href.split("#");
+	 
+	var currentHash;
 	
 	if(id.indexOf("#") == -1){
 		$('#top-menu [href="#start"]').addClass("current");
@@ -48,13 +50,15 @@
 	   cur = cur[cur.length-1];
 	   var id = cur && cur.length ? cur[0].id : "";
 	   
-	   if (lastId !== id) {
-		   lastId = id;
-		   // Set/remove active class
-		   menuItems
-			 .filter("[href]").removeClass("current")
-			 .end().filter("[href='#"+id+"']").addClass("current");
-	   }                   
+	   if (lastId !== id) { 
+		lastId = id; 
+		// Set/remove active class 
+		window.location.hash = (lastId); 
+		currentHash = lastId; 
+		menuItems 
+		.filter("[href]").removeClass("current") 
+		.end().filter("[href='#"+id+"']").addClass("current"); 
+		}                   
 	});
 
 });
