@@ -187,7 +187,7 @@ a {
 }
 
 #hilfe {
-    background: url(../images/hilfe_bg.svg);
+    background: url(../images/hilf_222222.svg);
     background-repeat: repeat-x;
 	background-size: auto 100%;
     height: 100vh;
@@ -243,7 +243,7 @@ a {
           transform: rotate(360deg);
 }
 #hilfe_rechts_outline {
-    background: #582758;
+    background: #B2D1EF;
     position: fixed;
     right: 0px;
 	margin: 20px;
@@ -515,7 +515,7 @@ article.page.gray { background-color: #eceae9; color: #000; }
 	background-color: Transparent;
 	font-family: Arial;
 	font-size: 20px;
-	color: rgba(255, 255, 255, 0.85);
+	color: rgba(0, 0, 0, 0.85);
 	font-weight: bold;
 	text-decoration: none;
 	border: 0;
@@ -523,21 +523,21 @@ article.page.gray { background-color: #eceae9; color: #000; }
 	text-align: center;
 }
 .cloud:hover {
-  color: rgba(242, 242, 242, 0.67);
+  color: rgba(96, 106, 117, 0.67);
   text-decoration: none;
 }
 .cloud:focus {
 outline: none;
 }
 #cloud1 {
-    top: 30%;
+    top: 15%;
     left: 5%;
 }
 #cloud2 {
-    top:50%;
+    top: 35%;
     left: 25%;
 }
 #cloud3 {
-    top: 40%;
+    top: 20%;
     left: 50%;
 }
