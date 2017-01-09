@@ -437,7 +437,8 @@ p.normalised
 
 p.greater
 {
-    font-size: 18px;
+	font-size: 23px;
+	text-align: center;
 }
 
 /* --- pages --- */
